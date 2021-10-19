@@ -1,0 +1,897 @@
+﻿<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>江苏太古可口可乐-合同查看</title>
+    <meta name="keywords" content="江苏太古,可口可乐"/>
+    <meta name="description" content="江苏太古可口可乐"/>
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+    <link rel="Shortcut icon" href="images/favicon.ico" type="image/x-icon"/>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.10.2/jquery.js"></script>
+    <script src="bootstrap/js/js-group2.js"></script>
+    <script src="bootstrap/wcPop/wcPop.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.13.1/css/fontawesome.min.css" rel="stylesheet">
+    <link href="bootstrap/css/css-group1.css" rel="stylesheet">
+    <link href="bootstrap/css/css-group2.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none
+        }
+
+        .il-block .weixin_nr {
+            width: 250px;
+            height: 200px;
+            padding: 10px;
+            background: #fff;
+            text-align: center;
+            position: absolute;
+            left: -100px;
+            top: -210px;
+            display: none;
+        }
+
+        .il-block .weixin_nr img {
+            margin-bottom: 5px;
+        }
+
+        .il-block.on .weixin_nr {
+            display: block;
+        }
+        .contract-container {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-bottom: 260px;
+        }
+        .contract-item {
+            float: left;
+            width: 386px;
+            height: 143px;
+            margin-right: 20px;
+			margin-bottom: 20px;
+            background: #F1F1F1;
+        }
+        .left-line {
+            width: 12px;
+            height: 143px;
+            float: left;
+        }
+        .left-line-red {
+            background: #D84D52;
+        }
+        .left-line-yellow {
+            background: #F4B51C;
+        }
+        .left-line-green {
+            background: #33C15F;
+        }
+        .contract-content {
+            width: 374px;
+            height: 100%;
+            float: left;
+        }
+        .contract-title-container {
+            margin-top: 24px;
+            margin-left: 20px;
+            height: 30px;
+            line-height: 30px;
+
+        }
+        .contract-title-container img {
+            margin-bottom: 6px;
+        }
+        .contract-title {
+            font-size: 22px;
+            font-weight: bold;
+            margin-left: 10px;
+            color: #3F3F3F;
+        }
+        .contract-others {
+            margin-top: 20px;
+        }
+        .contract-status {
+            height: 42px;
+            line-height: 42px;
+            float: left;
+            margin-left: 20px;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        .contract-status-red{
+            color: #D84D52;
+        }
+        .contract-status-yellow{
+            color: #F4B51C;
+        }
+        .contract-status-green{
+            color: #33C15F;
+        }
+        .contract-btn {
+            float: right;
+            width:95px;
+            height: 42px;
+            border: #D84D52 1px solid;
+            border-radius: 5px;
+            position: relative;
+            margin-right: 37px;
+            line-height: 42px;
+            color: #D31F28;
+            font-size: 18px;
+            font-weight: 500;
+            padding-left: 20px;
+            cursor: pointer;
+        }
+        .contract-btn img {
+            position: absolute;
+            top: 16px;
+            right: 20px;
+        }
+        .flexbox {
+            display: flex;
+        }
+        .wc__bankCard-list {display: none}
+        .wc__bankCard-list ul{padding-top: .2rem;}
+        .wc__bankCard-list ul li{background: #c64f58; border-radius: .07rem; margin: .6rem .6rem 0;}
+        .wc__bankCard-list ul li .bklogo{background: rgba(255,255,255,.7); border-radius: 50%; margin: .3rem .1rem 0 .3rem; overflow: hidden; padding: .1rem; height: .725rem; width: .725rem;}
+        .wc__bankCard-list ul li .bkinfo{padding-top: .3rem;}
+        .wc__bankCard-list ul li .bkinfo h2{color: #fff; font-size: .28rem;}
+        .wc__bankCard-list ul li .bkinfo h5{color: #ddd; font-size: .24rem;}
+        .wc__bankCard-list ul li .bkinfo .bknum{color: #fff; display: block; font-size: .36rem; font-family: arial; margin-top: .15rem;}
+
+        .wc__bankCard-list ul li {
+            border-radius: 0.75rem;
+            background: #ffffff;
+            position: relative;
+        }
+
+        .wc__bankCard-list ul li .item-left {
+            flex: 1;
+        }
+
+        .wc__bankCard-list ul li .item-left .title {
+            margin-top: 0.825rem;
+            margin-left: 1rem;
+            font-size: 1.025rem;
+            font-weight: bold;
+            color: #313131;
+        }
+
+        .wc__bankCard-list ul li .item-left .auth {
+            width: 4.25rem;
+            height: 1.6rem;
+            border: #E91F34 1px solid;
+            border-radius: 0.75rem;
+            text-align: center;
+            line-height: 1.6rem;
+            font-size: 0.8rem;
+            color: #E80823;
+            margin-left: 1rem;
+            margin-top: 0.975em;
+            margin-bottom: 1.15rem;
+        }
+
+        .wc__bankCard-list ul li .pp {
+            position: absolute;
+            top: 1.55rem;
+            right: 2.15rem;
+            width: 3.7rem;
+        }
+
+        .wc__bankCard-list ul li .corner_mark {
+            width: 3.1rem;
+            height: 3.1rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+        .wc__bankCard-list ul li .no_auth {
+            background-image: url("images/h5/no_auth.png");
+            background-size: 100%;
+        }
+
+        .wc__bankCard-list ul li .no_q {
+            background-image: url("images/h5/no_q.png");
+            background-size: 100%;
+        }
+
+        .wc__bankCard-list ul li .do_q {
+            background-image: url("images/h5/do_q.png");
+            background-size: 100%;
+        }
+
+        .mob .header-top {
+            display: none;
+        }
+        .mob .footer {
+            display: none;
+        }
+        .mob .wc__bankCard-list {
+            display: block;
+        }
+        .header2 {
+            display: none;
+        }
+        .mob .header2 {
+            display: flex;
+            height: 2rem;
+            align-items: center;
+            background: #fff;
+        }
+
+        .mob .header2 img {
+            width: 0.4rem;
+            margin-left: 17px;
+            vertical-align: middle;
+        }
+        .mob .header2 span {
+            margin-left: 0.33rem;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        .mob .contract-container {
+            display: none;
+        }
+        body.mob {
+            background: rgb(242,242,242);
+        }
+
+        #wcPopOne .popui__panel-cnt {
+            font-size: 0.825rem;
+            color: #EA0924;
+            font-weight: 800;
+        }
+
+        #wcPopTwo .popui__panel-cnt {
+            color: #000000;
+            font-weight: 500;
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .popui__ios {
+            width: 85%;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="wrap">
+    <div class="box">
+        <div class="header">
+            <div class="header-top change_header_top">
+                <div class="logo-wrap change_logo_wrap"><a class="logo" href="home.html"><img alt="江苏太古可口可乐"
+                                                                                              title="江苏太古可口可乐"
+                                                                                              src="images/new_change_header_logo.jpg"></a>
+                </div>
+                <div id="order-cart">
+                    <div class="cart-menu"></div>
+                    <a id="mob-cart-menu"><span class="cart-quantity">0</span></a>
+                    <div class="order-my">
+                        <div class="ord-nodata">
+                            <div><img src="images/shoppingcar-b.png"></div>
+                            <div>
+                                <p><a href="product-list-Test.html">您的购物车还是空的，</a></p>
+                                <p><a href="product-list-Test.html">即刻选择商品</a></p>
+                            </div>
+                        </div>
+                        <div class="ord-details">
+                            <div class="ord-list">
+                                <div class="ord-detail">
+                                    <div class="ord-img"><img src="images/cart-coca.jpg"/></div>
+                                    <dl>
+                                        <dd><span>可口可乐易拉罐330毫升</span></dd>
+                                        <dd>&nbsp;</dd>
+                                        <dd><span>[24罐]</span></dd>
+                                        <dd><span class="p-code">产品编号：2351</span></dd>
+                                    </dl>
+                                    <div class="ord-pnum"><span>19</span></div>
+                                    <div class="ord-money"><span class="money-i">￥</span><span>452.20</span></div>
+                                </div>
+
+                                <div class="ord-detail">
+                                    <div class="ord-img"><img src="images/cart-sprite.jpg"/></div>
+                                    <dl>
+                                        <dd><span>雪碧塑料瓶</span></dd>
+                                        <dd>600毫升</dd>
+                                        <dd><span>[24瓶]</span></dd>
+                                        <dd><span class="p-code">产品编号：1795</span></dd>
+                                    </dl>
+                                    <div class="ord-pnum"><span>19</span></div>
+                                    <div class="ord-money"><span class="money-i">￥</span><span>452.20</span></div>
+                                </div>
+
+                                <div class="ord-detail">
+                                    <div class="ord-img"><img src="images/cart-product8.jpg"/></div>
+                                    <dl>
+                                        <dd><span>美汁源果粒橙塑料瓶</span></dd>
+                                        <dd>1.25公升</dd>
+                                        <dd><span>[12瓶]</span></dd>
+                                        <dd><span class="p-code">产品编号：1944</span></dd>
+                                    </dl>
+                                    <div class="ord-pnum"><span>19</span></div>
+                                    <div class="ord-money"><span class="money-i">￥</span><span>452.20</span></div>
+                                </div>
+                            </div>
+                            <div class="cart-bottom">
+                                <div class="re-total"><span>返还和优惠前总计</span></div>
+                                <div class="total-money"><span class="money-i">￥</span><span>900.00</span></div>
+                            </div>
+                            <div id="pay-btn">结算</div>
+                        </div>
+                    </div>
+                </div>
+                <button id="nav_btn" class="navbar-toggle">菜单</button>
+                <div class="nav-bar" id="m_nav">
+                    <!-- <div class="nav-title"><a href="home.html" alt="江苏太古可口可乐" title="江苏太古可口可乐">江苏太古<span>可口可乐</span></a></div> -->
+                    <div id="m_p_list" class="top_nav"><a href="product-list-Test.html">产品目录<span
+                            class="drop-icon"></span></a></div>
+                    <ul id="primary-nav">
+                        <li><a class="dropdown-header" href="product-list-Test.html">汽水</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/coca.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/xuebi.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/fenda.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/yiquan.png"/></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-header" href="product-list-Test.html">果汁</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/meizhiyuan2.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/kuer.png"/></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-header" href="product-list-Test.html">水</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/bingluchunyue.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/binglu.png"/></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-header" href="product-list-Test.html">乳制品饮料</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/guolinaiyou.png"/></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-header" href="product-list-Test.html">营养素饮料</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/shuidongle.png"/></a></li>
+                                <li><a href="brand.html"><img src="images/menu/kuleshi.png"/></a></li>
+                            </ul>
+                        </li>
+                        <li><a class="dropdown-header" href="product-list-Test.html">咖啡</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="brand.html"><img src="images/menu/qiaoya.png"/></a></li>
+                            </ul>
+                        </li>
+
+                        <!--  <li><a  class="dropdown-header" href="product-list-Test.html">茶</a>
+                             <ul class="dropdown-menu" >
+                                 <li><a href="brand.html"><img src="images/menu/sprite.jpg"/></a></li>
+                             </ul>
+                         </li>  -->
+
+                        <li class="m_hidden"><a href="product-list-Test.html">产品目录</a>
+                        </li>
+                        <li class="c1"></li>
+                    </ul>
+                    <div id="log-successful">
+                        <div class="top_nav"><a href="order-list-new.html">我的订单</a></div>
+                        <div id="accFather" class="top_nav">
+                            <div id="myCon">
+                                <div class="my-acc"><a href="javascript:void(0)">我的账户<span class="drop-icon"></span></a>
+                                </div>
+                                <div class="sub_my box-shadow">
+                                    <ul>
+                                        <li><a href="blank.html">账户管理</a></li>
+                                        <li><a href="blank.html">子账户管理</a></li>
+                                        <li><a href="blank.html">修改密码</a></li>
+                                        <li><a href="blank.html">社交账户绑定</a></li>
+                                    </ul>
+                                    <ul>
+                                        <li><a href="account.html">账户主页</a></li>
+                                        <li><a href="rebate.html">促销折扣</a></li>
+                                        <li><a href="credit-balance.html">信用余额</a></li>
+                                        <li><a href="top-kpi.html">进货目标达成</a></li>
+                                    </ul>
+                                    <ul class="no-border">
+                                        <li><a href="quick-order.html">立即下单</a></li>
+                                        <li><a href="order-list-new.html">我的订单</a></li>
+                                        <li><a href="promotion-list.html">产品优惠</a></li>
+                                        <li><a href="customer-management.html">客户管理</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="top_nav"><a href="promotion-list.html">产品优惠</a></div>
+                    <div class="top_nav"><a href="blank.html">设备</a></div>
+                    <div class="top_nav"><a href="contact-us.html">联系我们</a></div>
+                    <div class="top_nav"><a href="about-us.html">关于我们</a></div>
+
+                    <div class="subhead">
+                	<span id="lan">
+                    	<a href="promotion-list.html">中</a>
+                             |
+                    	<a href="promotion-list.html">EN</a>
+                    </span>
+                        <span id="loged">
+						<a href="login.html">登录</a>
+					</span>
+
+                    </div>
+                    <div class="search_box">
+                        <form action="product-list-Test.html" method="get">
+                            <input class="form-control" type="text" placeholder="">
+                            <button class="btn-s">search</button>
+                        </form>
+                    </div>
+                    <div class="cl"></div>
+                </div>
+
+
+            </div>
+            <div class="nav-wrap hidden-xs">
+
+            </div>
+        </div>
+
+        <div class="header2">
+            <img src="images/h5/back.png" alt="">
+            <span>合同查看</span>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="breadwrap">
+                    <div class="breadcrumb">
+                        <span><a href="home.html">主页</a></span><span class="bcrumb-divider"></span><span class="active">我的账号</span><span class="bcrumb-divider"></span><span class="active">账号主页</span><span class="bcrumb-divider"></span><span class="active">合同查看</span>
+                    </div>
+                    <h1 class="page-title" style="font-weight:bold">合同查看</h1>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="contract-container">
+                    <div class="contract-item">
+                        <div class="left-line left-line-red"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-red">未认证</div>
+                                <div class="contract-btn">认证
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contract-item">
+                        <div class="left-line left-line-yellow"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-yellow">未签约</div>
+                                <div id="btnSign" class="contract-btn">签约
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contract-item">
+                        <div class="left-line left-line-green"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-green">已签约</div>
+                                <div class="contract-btn">查看
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+					<div class="contract-item">
+                        <div class="left-line left-line-red"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-red">未认证</div>
+                                <div class="contract-btn">认证
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contract-item">
+                        <div class="left-line left-line-yellow"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-yellow">未签约</div>
+                                <div id="btnSign" class="contract-btn">签约
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contract-item">
+                        <div class="left-line left-line-green"></div>
+                        <div class="contract-content">
+                            <div class="contract-title-container">
+                                <img src="images/contract-tag.png" />
+                                <span class="contract-title">2022年服务合同</span>
+                            </div>
+                            <div class="contract-others">
+                                <div class="contract-status contract-status-green">已签约</div>
+                                <div class="contract-btn">查看
+                                    <img src="images/right-arrow.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="wc__bankCard-list">
+                    <ul class="clearfix">
+                        <li class="flexbox">
+                            <div class="item-left">
+                                <div class="title">2022年服务合同</div>
+                                <div class="auth" id="btn1">认证</div>
+                            </div>
+                            <img class="pp" src="images/h5/pinpai.png" alt="">
+                            <div class="corner_mark no_auth"></div>
+                        </li>
+                        <li class="flexbox">
+                            <div class="item-left">
+                                <div class="title">2022年服务合同</div>
+                                <div class="auth" id="btn2">签约</div>
+                            </div>
+                            <img class="pp" src="images/h5/pinpai.png" alt="">
+                            <div class="corner_mark no_q"></div>
+                        </li>
+                        <li class="flexbox">
+                            <div class="item-left">
+                                <div class="title">2022年服务合同</div>
+                                <div class="auth" id="btn3">查看</div>
+                            </div>
+                            <img class="pp" src="images/h5/pinpai.png" alt="">
+                            <div class="corner_mark do_q"></div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="footer-width-padding">
+                <div class="footer-top cl">
+                    <div class="logo">
+                        <a href="javascript:void(0);" alt="江苏太古可口可乐" title="江苏太古可口可乐"><img class="footer_change_logo"
+                                                                                           src="images/new_change_footer_logo.jpg"></a><a
+                            href="about-us.html" alt="江苏太古可口可乐" title="江苏太古可口可乐"></a>
+                    </div>
+                    <ul class="footer-right-nav nav">
+                        <li><a href="order-list-new.html">我的订单</a></li>
+                        <li><a href="account.html">我的账号</a></li>
+                        <li class="logo_out_btn"><a href="login.html">登出</a></li>
+                    </ul>
+                    <div class="footer-link">
+                        <ul class="nav navbar navbar-left">
+                            <li><a href="product-list-Test.html">汽水</a></li>
+                            <li><a href="product-list-Test.html">果汁</a></li>
+                            <li><a href="product-list-Test.html">乳制品饮料</a></li>
+                            <li><a href="product-list-Test.html">咖啡</a></li>
+                            <li><a href="product-list-Test.html">水</a></li>
+                            <li><a href="product-list-Test.html">茶</a></li>
+                            <li><a href="product-list-Test.html">营养素饮料</a></li>
+                        </ul>
+                        <ul class="nav navbar navbar-left">
+                            <li><a href="promotion-list.html">产品优惠</a></li>
+                            <li><a href="blank.html">设备</a></li>
+                        </ul>
+                        <ul class="nav navbar navbar-left">
+                            <li><a href="about-us.html">关于我们</a></li>
+                            <li><a href="blank.html">成为伙伴</a></li>
+                            <li><a href="blank.html">成为客户</a></li>
+                            <li><a href="contact-us.html">联系我们</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <div class="fb_70">
+                        <p id="footer-text"><span class="copyright">Copyright© 2015 All Rights Reserved</span><span
+                                class="copyright"><a
+                                href="http://zcainfo.miitbeian.gov.cn/state/outPortal/loginPortal.action"
+                                target="_blank">浙ICP备05039805/3300001006315</a></span></p>
+                        <ul id="footer-bottom-link" class="list-inline">
+                            <li><a href="http://192.168.59.168:8088/myscc-pages/" target="_blank">营业执照</a></li>
+                            <li>|</li>
+                            <li><a href="http://192.168.59.168:8088/myscc-pages/" target="_blank">法律声明</a></li>
+                            <li class="footer_contact">|</li>
+                            <li class="footer_contact"><a href="contact-us.html">联络我们</a></li>
+                        </ul>
+                    </div>
+                    <style type="text/css">
+                        .lib_b2 {
+                            width: 250px;
+                            margin: 0px;
+                            padding: 0px;
+                            margin-bottom: 15px;
+                            overflow: hidden;
+                        }
+
+                        .lib_b2 {
+                            border: 1px solid #95C9E1;
+                        }
+
+                        .lib_menubox_b2 {
+                            line-height: 28px;
+                            position: relative;
+                            float: right;
+                            width: 49px;
+                            height: 191px;
+                            font-size: 14px;
+                        }
+
+                        .lib_menubox_b2 ul {
+                            margin: 0px;
+                            padding: 0px;
+                            list-style: none;
+                            position: absolute;
+                            top: 7px;
+                            left: 0px;
+                            margin-left: 0px;
+                            height: 25px;
+                            text-align: center;
+                        }
+
+                        .lib_menubox_b2 li {
+                            display: block;
+                            cursor: pointer;
+                            width: 45px;
+                            color: #949694;
+                            font-weight: bold;
+                            margin-bottom: 5px;
+                            height: 22px;
+                            line-height: 22px;
+                            background-color: #E4F2FD
+                        }
+
+                        .lib_menubox_b2 li.hover {
+                            padding: 0px;
+                            background: #739242;
+                            width: 45px;
+                            color: #fff;
+                            height: 22px;
+                            line-height: 22px;
+                        }
+
+                        .lib_contentbox_b2 {
+                            margin-top: 0px;
+                            border-top: none;
+                            padding: 0px;
+                            border-left: 0;
+                            margin-right: 130px;
+                        }
+
+                        #DB_gallery_wechat li {
+                            margin-bottom: 5px;
+                        }
+
+                        #DB_gallery_weibo li {
+                            margin-bottom: 5px;
+                        }
+                    </style>
+                    <script>
+                        function setTab(name, cursel, n, bname) {
+                            for (i = 1; i <= n; i++) {
+                                var menu = document.getElementById(name + i);
+                                var b3 = document.getElementById(bname + name + "_" + i);
+                                if (menu != null) {
+                                    menu.className = i == cursel ? "hover" : "";
+                                }
+                                if (b3 != null) {
+                                    b3.style.display = i == cursel ? "block" : "none";
+                                }
+                            }
+                        }
+                    </script>
+                    <ul id="social-media" class="list-inline">
+                        <li class="il-block" onmouseover="this.className = 'il-block on';"
+                            onmouseout="this.className = 'il-block';">
+                            <a href="javascript:;" onclick="safariQRCode(this);"><img src="images/QR/TGSite.jpg"></a>
+                            <div class="weixin_nr">
+                                <div id="DB_gallery_site">
+                                    <ul class="DB_thumMove">
+                                        <li><img src="images/QR/qr.png" width="198" height="198"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="il-block" onmouseover="this.className = 'il-block on';"
+                            onmouseout="this.className = 'il-block';">
+                            <a href="javascript:;" onclick="safariQRCode(this);"><img src="images/wechat.jpg"></a>
+                            <div class="weixin_nr">
+                                <div id="DB_gallery_wechat">
+                                    <div id="lib_b1" class="lib_b2">
+                                        <div class="lib_menubox_b2">
+                                            <ul>
+                                                <li id="b31" onclick="setTab('b3',1,7,'b1_')" class="">浙江</li>
+                                                <li id="b32" onclick="setTab('b3',2,7,'b1_')" class="hover">广东</li>
+                                            </ul>
+                                        </div>
+                                        <div class="lib_contentbox_b2">
+                                            <div id="b1_b3_1" style="display: none;">
+                                                <img src="images/QR/qr.png" width="198" height="198">
+                                            </div>
+                                            <div id="b1_b3_2" style="display: block;">
+                                                <img src="images/QR/qr.png" width="198" height="198">
+                                            </div>
+                                            <script type="text/javascript">setTab('b3', 1, 7, 'b1_');</script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="il-block" onmouseover="this.className = 'il-block on';"
+                            onmouseout="this.className = 'il-block';">
+                            <a href="javascript:;" onclick="safariQRCode(this);"><img src="images/weibo.jpg"></a>
+                            <div class="weixin_nr">
+                                <div id="DB_gallery_weibo">
+                                    <div id="Div1" class="lib_b2">
+                                        <div class="lib_menubox_b2">
+                                            <ul>
+                                                <li id="b41" onclick="setTab('b4',1,7,'b2_')" class="">广东</li>
+                                                <li id="b42" onclick="setTab('b4',2,7,'b2_')" class="hover">浙江</li>
+                                            </ul>
+                                        </div>
+                                        <div class="lib_contentbox_b2">
+                                            <div id="b2_b4_1" style="display: none;">
+                                                <img src="images/QR/qr.png" width="198" height="198">
+                                            </div>
+                                            <div id="b2_b4_2" style="display: block;">
+                                                <img src="images/QR/qr.png" width="198" height="198">
+                                            </div>
+
+                                            <script type="text/javascript">setTab('b4', 1, 7, 'b2_');</script>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    #dialogOne{
+        text-align: center;
+        font-size: 18px;
+        color: #D3222C;
+        padding: 40px;
+        font-weight: bold;
+    }
+    #dialogTwo{
+        padding: 40px;
+        text-align: center;
+        font-size: 18px;
+        font-weight: bold;
+    }
+    .dialogTwo .layui-layer-btn0 {
+        border: 1px solid #dedede;
+        background-color: #ffffff;
+        color: #333333;
+        margin-right: 70px;
+    }
+    .dialogTwo .layui-layer-btn1 {
+        color: #D3222C;
+        border: #D3222C 1px solid;
+    }
+    .dialogOne .layui-layer-btn0 {
+        border: 1px solid #dedede;
+        background-color: #ffffff;
+        color: #333333;
+    }
+</style>
+
+<script src="layer/layer.js"></script>
+<script type="text/javascript">
+    function done() {
+        layer.open({
+            title: false,
+            content: '恭喜您，合同签约成功！',
+            btn: ['关闭'],
+            btnAlign: 'c',
+            closeBtn: 0,
+            id: 'dialogOne',
+            yes: function(index, layero){
+                layer.close(index);
+            }
+        });
+    }
+
+    function done2() {
+        var index2 = wcPop({
+            id: "wcPopOne",
+            skin: 'ios',
+            title: "",
+            content: "恭喜您，合同签约成功！",
+            shadeClose: false,
+            btns: [
+                {
+                    text: "好的",
+                    style: "line-height: 1.95rem; font-weight: 500; font-size: 0.825rem; background: rgb(230, 230, 230)",
+                    onTap() {
+                        wcPop.close(index2);
+                    }
+                }
+            ]
+        });
+    }
+
+    $(function () {
+        $('body').on('click', '#btnSign', function () {
+            layer.confirm('合同签约还未完成，请尽早签定，谢谢！', {
+                title: false,
+                btn: ['关闭', '去签约'],
+                btnAlign: 'c',
+                closeBtn: 0,
+                id: 'dialogTwo',
+            }, function(index, layero){
+                layer.close(index);
+            }, function(index){
+                layer.close(index);
+                done();
+            });
+        });
+
+        $('body').on("click", "#btn2", function () {
+            var index = wcPop({
+                id: "wcPopTwo",
+                skin: 'ios',
+                title: "",
+                content: "合同签约还未完成，请尽早签定，谢谢！",
+                shadeClose: false,
+                btns: [
+                    {
+                        text: "关闭",
+                        style: "line-height: 1.95rem; font-weight: 500; font-size: 0.825rem; background: rgb(230, 230, 230);border-top-right-radius:0; border-bottom-right-radius:0",
+                        onTap() {
+                            wcPop.close(index);
+                        }
+                    },
+                    {
+                        text: "去签约",
+                        style: "line-height: 1.95rem; font-weight: 500; font-size: 0.825rem; background: rgb(234, 9, 36); color: #ffffff;border-top-left-radius:0; border-bottom-left-radius:0;",
+                        onTap() {
+                            wcPop.close(index);
+                            done2();
+                        }
+                    }
+                ]
+            })
+        });
+    });
+</script>
+</body>
+</html>

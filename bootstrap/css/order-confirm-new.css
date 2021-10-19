@@ -1,0 +1,49 @@
+@media screen and (max-width:980px) {
+	.list-old-price{
+		margin-bottom: -6px;
+		
+	}
+	.pcprice{
+		display: none;
+	}
+	.num111{
+		top: 69px !important; 
+	}
+	.num-padding{
+		top: 75px !important;
+		margin-left: -20px !important;
+	}
+	.m-remark-alert num{
+		top: -1px !important;
+	}
+	.remark-alert{
+		margin-left: 47px;
+	}
+	.pingzi_css{
+		top: -1px !important;
+	}
+	
+}
+
+
+
+
+@media screen and (min-width:980px) {
+	.list-old-price{
+			display: none;
+	}
+	.pcprice{
+		margin: -23px 0 0 -6px;
+		text-decoration: line-through;
+		color: #8a8c8f!important;
+		font-size: 14px!important;
+		
+		
+	}
+	.pc .oc-orderlist .list-total label, .pc .od-orderlist .list-total label{
+		top: 0;
+		position: relative;
+		    margin-left: 35px;
+	}
+	
+}

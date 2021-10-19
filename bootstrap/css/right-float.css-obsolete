@@ -1,0 +1,42 @@
+.right-float{
+    position: fixed;
+    right: 0;
+    top:200px;
+    z-index:9;
+	background-color:#FFF;
+}
+.right-float.singer-rf,.mob .right-float.singer-rf.online-rf,.vt .right-float.singer-rf.online-rf{
+	background:none;
+}
+ .pc .right-float.singer-rf.online-rf{
+	 background-color:#fff!important;
+ }
+.mob .right-float,.vt .right-float{
+    top:auto; 
+    bottom:100px;
+}
+.right-float ul{
+   width:75px;
+   border: 1px solid #bdbebf;
+   margin-bottom:0;
+}
+.right-float.singer-rf ul,.mob .right-float.singer-rf.online-rf ul,.vt .right-float.singer-rf.online-rf ul{
+	border:none;
+}
+.right-float li{
+   text-align: center;
+   overflow:hidden;
+   margin: 10px 0;
+   padding: 0 5px;
+   position:relative;
+   color:#000!important;
+}
+.right-float li span{
+	position: relative;
+    top: 0px;
+	display:block;
+}
+.right-float img{
+	width:50px;
+	height:50px;
+}

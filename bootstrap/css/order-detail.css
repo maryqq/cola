@@ -1,0 +1,33 @@
+/* @media screen and (min-width:992px) {
+	
+} */
+.ulbuy{
+		margin-top: 100px;
+	}
+@media screen and (max-width:767px) {
+	
+	
+	.vt .ship li img, .mob .ship li img{
+		margin-top: 3px;
+	}
+	.xiadandate dd{
+		margin-bottom: 9px;
+		margin-top: 1px;
+	}
+	
+	.ulbuysss{
+		margin-top: 100px;
+	}
+}
+@media screen and (max-width:979px){
+	.kuanducss{
+		width: 35px !important;
+	}
+}
+/* @media screen and (max-width:372px) {
+	
+	
+	.dddd{
+		margin-top: 35px !important;
+	}
+} */

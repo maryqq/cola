@@ -1,0 +1,156 @@
+.order-amount,.od-orderlist .table-cell.MCD,.od-orderlist .list-price,.od-orderlist .list-total-price,.sc-list .table-cell.MCD,.sc-list .list-price,.sc-list .list-total-price{
+	text-indent:-9999px;
+}
+.order-amount-MCD{
+	text-indent:0;
+}
+.pc .order-amount-MCD span:first-child{
+	padding-right:10px;
+}
+.mob .order-amount-MCD span,.vt .order-amount-MCD span{
+	font-size:16px!important;
+	color: #8a8c8f!;
+}
+.order-amount-MCD span:first-child{
+	padding-right:24%;
+}
+.mob .od-orderlist-MCD .num, .vt .od-orderlist-MCD .num{
+	top:5px;
+}
+.total-price.total-price3,.total.total2,.total.total3.noborder,.shiptime.oc-shiptime.guarantee{
+	display:none;
+}
+.total.total1{
+	border-bottom:0;
+}
+.list-total-price.gift-show{
+	text-indent:0;
+}
+.mob .order-list-MCD .order-amount,.vt .order-list-MCD .order-amount{
+	display:none;
+}
+.mob .order-list-MCD .order-btn,.vt .order-list-MCD .order-btn{
+	width:82%;
+}
+.o-amount{
+	font-size: 26px;
+	padding-left: 20px;
+}
+.pc .sc-total{
+	/* margin: 30px 24.22% 0px 15px; */              /*20161116 Angela cancel ????:quick-order-MCD?shopping-cart-MCD??????*/
+}
+.mob .sc-MCD-list .num,.vt .sc-MCD-list .num{
+	position: relative;
+    top:24px;
+    height: auto;
+    font-size: 14px!important;
+	left:135px;
+}
+.mob .qo-MCD-list .pro-del-price{
+    display: table;
+    top: 30px;
+    position: relative;
+}
+.mob .qo-MCD-list .pro-price-count{
+	display: table-cell;
+    float: right;
+    position: relative;
+    top: -19px;
+    left: -68%!important;
+}
+.mob .qo-MCD-list .pro-no{
+	display: table-cell;
+    float: left;
+}
+.mob .qo-MCD-list .cart-action{
+	position:relative;
+}
+@media screen and (orientation: portrait){
+.mob .qo-list .cart-action .cart-input-box, .mob .plT-list-box .cart-action .cart-input-box {
+    width: 35px;
+    }
+.mob .qo-MCD-list .cart-action{
+	top: -5px!important;
+    left: 8px!important;
+}
+}
+.mob .extraclass_t_1, .vt .extraclass_t_1{
+	width:100%;
+	padding-right: 50px;
+}
+.mob .sc-empty-alert,.vt .sc-empty-alert{
+	display:block;
+}
+.vt .hotsale-icon, .vt .recommend-icon, .vt .new-icon, .mob .hotsale-icon, .mob .recommend-icon, .mob .new-icon{
+	top:40px;
+}
+.mob .list-total-price:before, .vt .list-total-price:before{
+	content:"";
+}
+.mob span.present.m_block ,.vt span.present.m_block {
+    display: inline-block;
+    margin-left: 20px;
+}
+/*order-confirm-B-MCD begin*/
+.mob .ocB-list .num, .vt .ocB-list .num{
+	top:24px;
+}
+.pc .sc-total.coB-total{
+	margin: 30px 25.5% 0px 15px;
+}
+
+/*order-confirm-MCD begin*/
+.list-total-price.list-total-present{
+	text-indent:0;
+}
+.list-total-price.list-total-present span{
+	color: #bc0720;
+}
+.mob .oc-MCD-list .num,.vt .oc-MCD-list .num{
+	top:4px;
+}
+.mob .oc-MCD-list .list-total:before, .vt .oc-MCD-list .list-total:before {
+	content:"数量:";
+}
+.mob .total.total2.oc-MCD-mobtotal,.vt .total.total2.oc-MCD-mobtotal{
+	display:block;
+	border-bottom:none;
+}
+.mob .total.total2.oc-MCD-mobtotal div,.vt .total.total2.oc-MCD-mobtotal div{
+	display:none;
+}
+.mob .total.total2.oc-MCD-mobtotal div:first-child,.vt .total.total2.oc-MCD-mobtotal div:first-child{
+	display:table;
+}
+.mob .oc-MCD-shiptime,.vt .oc-MCD-shiptime{
+	display:none;
+}
+.pc .oc-MCD-footer{
+	display:none;
+}
+.extraclass_t_1.extraclass_t_1-MCD:before{
+ content:"总件数";
+}
+.mob .oc-MCD-list .list-total,.vt .oc-MCD-list .list-total{
+	left:0;
+}
+
+
+/*shopping-car-overlay.html begin*/
+.ord-details.ord-details-MCD{
+	position:relative;
+}
+.ord-details-MCD .ord-list {
+    padding: 20px 15px 30px;
+	margin:0;
+    float: left;
+    width: 100%;
+}
+.ord-details-MCD .ord-detail{
+	width:100%;
+}
+.ord-details-MCD .total-num{
+	float:right;
+	padding-right:2%;    
+	color: #404041;
+}

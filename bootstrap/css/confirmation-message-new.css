@@ -1,0 +1,59 @@
+.product-img {
+	height: 95px!important;
+}
+
+@media screen and (min-width:613px) {
+	#content.outpadding .content-padding{
+		padding: 0 !important;
+	}
+	.order-btn{
+		width: 23%;
+	}
+	
+}
+@media screen and (max-width:980px){
+	.check-all{
+		margin-right: 5%;
+	}
+	
+}
+
+@media screen and (min-width:980px) {
+	.check-all{
+			clear: both;
+			margin-right:7.5%;
+	}
+	.totalblock-detail{
+			display: none;
+	}
+	.totalblock{
+		display: none;
+	}
+	.order-amount{
+		padding-left: 9.5%;
+	}
+	.npay{
+		padding-right: 8%;
+	}
+	.order-status {
+		text-align: center;
+	}
+	.total {
+		padding-right: 7.5% !important;
+		width: 49%;
+	}
+	
+	.total-num{
+		width: 200px;
+		margin: 0 0 0 2% !important;
+	}
+	.shiptime {
+		padding-right: 7.5% !important;
+	}
+	.total-num1{
+		width: 112px!important;
+	}
+	
+	
+	
+}

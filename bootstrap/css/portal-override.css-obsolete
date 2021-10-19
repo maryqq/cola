@@ -1,0 +1,89 @@
+﻿.logined .search_box{
+	right:125px;
+}
+.mob .search_box{
+	right:auto;
+}
+.vt .search_box{
+	right:auto;
+}
+#order-cart{
+	right:94px;
+}
+#m_p_allp{
+	display:none;
+}
+.mob #m_p_allp,.vt #m_p_allp{
+	display:block;
+	text-align:right;	
+}
+.mob #m_p_allp a,.vt #m_p_allp a{
+	font-size:18px !important; 
+}
+.mob #primary-nav div a:hover{
+    color: #D3222B;
+    background: none;
+}
+/* fixed mobile account height */
+#log-successful .sub_my ul {
+	min-height: 34px;
+}
+.vt #log-successful .sub_my, .mob #log-successful .sub_my {
+        height: auto; 	
+}
+.vt #content > .row, .mob #content >.row,.mob #content{
+	padding-bottom: 15px;
+}
+.mob #special{
+	padding-bottom: 40px;
+}
+/* disable link to phone number when on Desktop */
+/* 兼容iphone5 */
+/*@media (device-height:568px) and (-webkit-min-device-pixel-ratio:2){
+  .tel{
+    
+	pointer-events: none;
+    cursor:default;
+  }
+}*/
+@media only screen and (min-device-width :668px){ 
+  .tel{
+	pointer-events: none;
+    cursor:default;
+  }
+}
+/*iphone6*/
+@media (min-device-width : 320px) and (max-device-width : 667px){ 
+  .tel{
+	pointer-events: auto;
+    cursor:default;
+  }
+}
+/*iphone6p*/
+@media (min-device-width : 414px) and (max-device-width : 736px) and (-webkit-min-device-pixel-ratio : 3){ 
+  .tel{
+	pointer-events: auto;
+    cursor:default;
+  }
+}
+/*魅族*/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 2.5){
+  .tel{
+	pointer-events: auto;
+    cursor:default;
+  }
+}
+/*mate7*/
+@media only screen and (min-device-width :1080px) and (-webkit-min-device-pixel-ratio : 3){ 
+  .tel{
+	pointer-events: auto;
+    cursor:default;
+  }
+}
+/*iphone4,4s*/
+/*@media only screen and (device-height :480px) and (-webkit-device-pixel-ratio:2){ 
+  .tel{   
+	pointer-events: none;
+    cursor:default;
+  }
+}*/

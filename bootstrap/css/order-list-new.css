@@ -1,0 +1,308 @@
+.vt #content > .row, .mob #content >.row, .mob #content{
+	padding-bottom:0;
+}
+.order-date div{
+	display:inline-block;	
+}
+.order-box:hover .orderlist-new-no{
+	color:#404041;
+}
+.mob .order-box-new,.vt .order-box-new{
+	border-bottom:#c3c3c3 solid 5px;
+}
+.mob .order-box-new:first-child,.vt .order-box-new:first-child{
+	border-top:#c3c3c3 solid 0px;
+}
+.order-date .orderlist-new-no{
+	display:inline;
+	zoom:1;
+}
+.orderlist-new-no span{
+	padding-right:10px;
+}
+.order-date ul{
+	margin-left:10px;
+}
+.orderlist-new-no {
+    font-size: 14px;
+ 	padding-left:30px; 
+}
+.orderlist-new-pic{
+	display:inline-block;
+    position:relative;
+}
+.orderlist-new-pic img{
+	width: 50px;
+}
+.orderlist-new-pic  span{
+	position: absolute;
+    z-index: 99;
+    bottom: 0;
+    right: 3px;
+    font-size: 12px;
+    letter-spacing: -2px;
+}
+.orderlist-new-statusone,.orderlist-new-statustwo{
+	color: #fff;
+    font-size: 12px;
+	background-color:#FF7E26;
+	border-radius:15px;
+	behavior: url(bootstrap/js/PIE.htc);
+    padding:0px 20px;
+
+}
+.mob .orderlist-new-status,.vt .orderlist-new-status{
+	width:95%;
+    line-height: 25px;
+}
+.mob .orderlist-new-status .more-label span:last-child,.vt .orderlist-new-status .more-label span:last-child{
+	margin-left:0;
+}
+.orderlist-new-statustwo{
+	background-color:#00A1E7;
+}
+.orderlist-new-status {
+    position: relative;
+    top: 15px;
+}
+.pc .orderlist-new-status {
+	width: 60%;
+}
+.orderlist-new-status span {
+    margin-right: 5px;
+	display:inline-block;
+}
+.mob .orderlist-new-status, .vt .orderlist-new-status {
+    display:table;
+    width:90%;
+    left: auto;
+    top:10px;
+}
+.order-list-new-boxleft{
+	position: relative;
+}
+.mob .order-list-new-boxleft,.vt .order-list-new-boxleft{
+	float: left;
+    width: 70%;
+}
+.order-box-new dl{
+	width:25%;
+}
+.mob .order-box-new,.vt .order-box-new{
+	padding:20px 4%;
+}
+.orderlist-new-amount{
+	width: 20%;
+    text-align: left;
+    font-size: 12px;
+}
+.order-btn.orderlist-new-btn a{
+	border: 1px solid #ce322b; 
+	padding:6px 8px;
+	background-color: #FFF;
+}
+.order-btn.orderlist-new-btn span{
+	color:#ce322b;
+	padding-left:10px;
+}
+.order-btn.orderlist-new-btn .cart{
+	background: url(../../images/orderlist-new-cart.png) no-repeat center;
+    width: 39px;
+    height: 24px;
+}
+.pc .orderlist-new-date img{
+	display:none;
+}
+dd.orderlist-new-pic.orderlist-new-productname {
+    position: absolute;
+    width: 180px!important;
+    top: 50%;
+    margin-top: -11px;
+}
+.mob dd.orderlist-new-pic ,.vt dd.orderlist-new-pic {
+    width: auto;
+    display: inline-block;
+}
+.mob .order-btn.orderlist-new-btn,.vt .order-btn.orderlist-new-btn{
+	top:75%;
+    right: 4%;
+    width: 100%;
+}
+.mob .orderlist-new-order-useraction,.vt .orderlist-new-order-useraction{
+	width: 30%;
+}
+.mob .orderlist-new-dl,.vt .orderlist-new-dl{
+	/* margin-bottom:20px; */
+	width:80%!important;
+}
+.vt .orderlist-new-order-useraction .order-amount, .mob .orderlist-new-order-useraction .order-amount{
+	display:block;
+	width:100%;
+	text-align: right;
+}
+.mob .orderlist-new-amount,.vt .orderlist-new-amount{
+	width:100%;
+	text-align: right;
+}
+.mob .orderlist-new-no span:first-child,.vt .orderlist-new-no span:first-child{
+	display:none;
+}
+.mob .orderlist-new-date,.vt .orderlist-new-date{
+    float: right;
+}
+.mob .orderlist-new-no,.vt .orderlist-new-no{
+    padding-left: 0;
+    font-size: 16px;
+}
+.order-box{
+	cursor:pointer;
+}
+.orderlist-new-productname{
+	color: #404041!important;
+    font-size: 14px!important;
+}
+.orderlist-new-noproduct .orderlist-new-pic{
+	min-height:50px;
+	line-height:30px;
+    vertical-align: -webkit-baseline-middle;
+}
+.orderlist-new-noproduct .orderlist-new-amount{
+	text-indent:-9999px;
+}
+.mob .orderlist-new-noproduct .orderlist-new-amount,.vt .orderlist-new-noproduct .orderlist-new-amount{
+	display:none;
+}
+.orderlist-new-titlearea{
+	position:relative;
+	border-bottom:1px solid #8A8C8F;
+}
+.pc .orderlist-new-titlearea{
+	margin:0 20px;
+}
+.orderlist-new-sort{
+	position: absolute;
+	/*display:inline-block;*/
+	height: 40px;
+	bottom:0px;
+	color:#8a8c8f;
+	float: right;
+	right: 0px;
+	font-size:16px;
+}
+.orderlist-new-sort .un-complete{
+	float: left;
+}
+.orderlist-new-sort .complete{
+	float: right;
+}
+.orderlist-new-sort a{
+	display: block;
+	padding:0 10px;
+	height: 40px;
+	line-height:40px;
+}
+.orderlist-new-sort .active{
+	color: red;
+	border-bottom:2px solid red;
+}
+.mob .orderlist-new-sort,.vt .orderlist-new-sort{
+	top:35px;
+}
+.mob .orderlist-new-sort {
+	right: 0px;
+}
+.mob .orderlist-new-sort a{
+	display: block;
+	padding:0 10px;
+	height: 35px;
+	line-height:35px;
+}
+.orderlist-new-title{
+	display:inline-block;
+}
+.orderlist-new-sort select {
+    border: none;
+}
+.mob .orderlist-new-titlearea .ol-title, .vt .orderlist-new-titlearea .ol-title{
+	margin-bottom:35px;
+}
+.order-btn.orderlist-new-btn{
+	width:33%;
+}
+.no-order-wrap{
+	text-align: center;
+	border-top:1px solid #efefef;
+	padding-top:20px;
+}
+.no-order-wrap p{
+	line-height:20px;
+	color:red;
+	margin-bottom:0px;
+}
+.tip-info{
+	margin: 20px auto;
+	width:180px;
+}
+.no-order-wrap img{
+	height:40px;
+	float: left;
+}
+/*图标样式开始*/
+.statistics-wrap{
+	position: relative;
+	text-align: center;
+	min-height: 40px;
+}
+.statistics-wrap .title{
+	position: relative;
+	height:40px;
+	width:100%;
+	text-align: center;
+	font-size:18px;
+	color:#3c893b;
+	line-height:40px;
+	display: none;
+}
+.statistics-wrap .title img {
+	width:18px;
+	position: absolute;
+	top:11px;
+	right:11px;
+	z-index:99999999;
+}
+.analyze-button{
+	display: none;
+}
+.mob .analyze-button{
+	line-height:30px;
+	width:100px;
+	font-size:18px;
+	color:#3c893b;
+	border:2px solid #3c893b;
+	display: block;
+	margin:0 auto;
+	margin-top:10px;
+}
+
+.orderlist.order-box{
+	padding: 0 10px 20px;
+	border-bottom: 1px solid #8a8c8f;
+	margin-bottom: 20px;
+}
+.orderlist.order-box:last-child{
+	border: none;
+}
+.vt .orderlist-new-sort{
+	top: auto;
+}
+.vt .order-btn.orderlist-new-btn{
+	top: auto;
+	bottom: 15px;
+    right: 10px;
+    width: 100%;
+}
+.mob .order-btn.orderlist-new-btn, .vt .order-btn.orderlist-new-btn{
+	top: auto;
+	bottom: 15px;
+	right: 10px;
+}

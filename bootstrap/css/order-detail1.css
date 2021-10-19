@@ -1,0 +1,26 @@
+.wujiaoxing{
+    min-width: 150px;
+    float: right;	
+}
+@media screen and (min-width:992px) {
+	
+}
+@media screen and (max-width:767px) {
+	
+	
+	.vt .ship li img, .mob .ship li img{
+		margin-top: 3px;
+	}
+	.xiadandate dd{
+		margin-bottom: 9px;
+	}
+	
+	.ulbuysss{
+		margin-top: 100px;
+	}
+	
+	.ship dl dd {
+	    
+	    margin-bottom: 4px;
+	}
+}

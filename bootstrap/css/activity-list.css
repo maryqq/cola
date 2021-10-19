@@ -1,0 +1,527 @@
+@media only screen and (min-width:750px) {
+    /*活动列表样式开始*/
+    .activity-content-wrap{
+        padding:0 20px 0 0;
+        height:58px;
+        line-height: 58px;
+        border-bottom:1px solid #8B8989;
+        position: relative;
+    }
+    .activity-list-wrap li:first-child{
+        border-top:1px solid #8B8989;
+    }
+    .activity-status{
+        color: #11a8ee;
+        text-align: right;
+        float: right;
+        position: absolute;
+        right:-100px;
+    }
+    .activity-content-wrap .right-icon img{
+        position: absolute;
+        top:10px;
+        right:0px;
+    }
+    .right-icon{
+        padding:0 0;
+    }
+    /*活动列表样式结束*/
+    /*活动详情样式开始*/
+    .web-title{
+        height:40px;
+        line-height:40px;
+        text-align: center;
+        font-size:18px;
+        color: #d3222b;
+    }
+    .mob-title{
+        display: none;
+    }
+    .activity-title{
+        font-size:18px;
+        color:#333333;
+    }
+    .activity-title span{
+        float: left;
+    }
+    .list-brank{
+        float: left;
+        width:93%;
+        height:58px;
+        line-height:58px;
+        overflow:hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    .activity-detail-wrap{
+        background-color: #ffffff;
+    }
+    .activity-info-wrap{
+        margin-top: 10px;
+        background-color: #ffffff;
+        padding:0 0 0 0;
+        margin-bottom: 20px;
+    }
+    .activity-info-wrap ul{
+        margin-bottom: 0;
+    }
+    .activity-info-wrap li{
+        height:40px;
+        border-bottom: 1px solid #efefef;
+    }
+    .activity-info-wrap li:last-child{
+        height:40px;
+        border-bottom: none;
+    }
+    .activity-info-wrap li:first-child{
+        height:40px;
+        border-bottom: none;
+    }
+    .activity-info-wrap li img{
+        height:30px;
+        margin: 5px 5px 5px 0;
+    }
+    .activity-info-wrap li .title{
+        padding:0 0;
+    }
+    .activity-info-wrap li .info{
+        padding:0 0;
+        line-height:40px;
+        padding-right: 10px;
+        text-align: right;
+        color:#333333;
+    }
+    .activity-status-no{
+        color: #11a8ee;
+        font-size:16px;
+        text-align: right;
+        position: absolute;
+        right:-100px;
+    }
+    .activity-status-ok{
+        color: #11a8ee;
+        font-size:16px;
+        text-align: right;
+        position: absolute;
+        right:-100px;
+    }
+    /*每月最低约定进货额*/
+    .purchase-commitment{
+        padding:0 0;
+    }
+    .web-wrap-title{
+        font-size:16px;
+        height:40px;
+        line-height:40px;
+        border-bottom:1px solid #8a8c8f;
+    }
+    .mob-wrap-title{
+        display: none;
+    }
+    .purchase-commitment-wrap-mob{
+        display: none;
+    }
+    .purchase-commitment-wrap-web{
+        padding: 0 0;
+    }
+    .purchase-commitment-wrap-web table{
+        border:1px solid #ffffff;
+        border-right:none ;
+        text-align: center;
+        margin-top: 20px;
+    }
+    .purchase-commitment-wrap-web table tr {
+        border-left:1px solid #EFEFEF;
+        border-bottom:1px solid #EFEFEF;
+    }
+    .purchase-commitment-wrap-web table tr td{
+        border-right:1px solid #EFEFEF;
+    }
+    .purchase-commitment-wrap-web table .no-finish{
+        color: #00FF00;
+    }
+    .purchase-commitment-wrap-web table .finish{
+        color: red;
+    }
+    .purchase-commitment-wrap-web table p{
+        margin-top:10px;
+        margin-bottom: 0px;
+    }
+    .purchase-commitment-wrap-web table p:last-child{
+        margin-top:0px;
+        margin-bottom:10px;
+    }
+    .purchase-commitment-content-web{
+
+     }
+    .purchase-commitment-content-mob{
+        display: none;
+    }
+    .tip-info{
+        height:20px;
+        line-height:20px;
+        color: #333333;
+        text-align: right;
+        background-color: #ffffff;
+        padding:0 0 0 0;
+    }
+    /*活动详情样式结束*/
+    /*生动化项开始*/
+    .trend-wrap{
+        padding:0 0;
+    }
+    .trend-list-wrap-mob{
+        display: none;
+    }
+    .trend-list-wrap-web{
+        padding:0 0;
+        font-size: 12px;
+    }
+    .trend-list-wrap-web li div{
+        padding:0 0;
+    }
+    .trend-list-wrap-web li{
+        height:55px;
+        position: relative;
+        padding:0 0;
+        border-bottom: 1px solid #EFEFEF;
+        font-size:14px;
+    }
+    .trend-list-wrap-web .money-hot{
+        text-align: right;
+        line-height:55px;
+    }
+    .trend-list-wrap-web .money-cold{
+        line-height: 55px;
+    }
+    .jc{
+        color: red;
+        position: absolute;
+        top:16px;
+        left:34px;
+    }
+    .trend-list-wrap-web .trend-logo{
+        float: left;
+        height:55px;
+        line-height: 55px;
+    }
+    .trend-list-wrap-web .title{
+        margin-left: 40px;
+        padding-right: 30px;
+    }
+    .to-long{
+        position: absolute;
+        top:12px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        display:-webkit-box;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+    }
+    /*生动化项结束*/
+    .bottom-line{
+        border-bottom: 1px solid #333333;
+        margin-bottom: 0px;
+    }
+}
+@media only screen and (max-width:750px) {
+    /*活动列表样式开始*/
+    .activity-list-wrap{
+        background-color:#efefef;
+    }
+    .activity-list-wrap li{
+        background-color:#ffffff;
+        margin-bottom:5px;
+    }
+    .activity-list-wrap li:first-child{
+        margin-top: 10px;
+    }
+    .activity-content-wrap{
+        position: relative;
+        padding:0 0;
+        height:60px;
+    }
+    .activity-content-wrap .right-icon img{
+        position: absolute;
+        top:10px;
+        right:10px;
+    }
+    .right-icon{
+        padding:0 0;
+    }
+    .activity-title{
+        padding:0 0;
+        position: relative;
+        top:0px;
+        color: #333333;
+        font-size:16px;
+        height:60px;
+        /*overflow: hidden;*/
+        /*text-overflow: ellipsis;*/
+        /*white-space: nowrap;*/
+    }
+    .activity-title span{
+        display: inline-block;
+        height:100%;
+        float: left;
+    }
+    .list-brank{
+        width:60%;
+        line-height:20px;
+        padding-top:10px;
+        height:50px;
+        overflow:hidden;
+        text-overflow:ellipsis;
+        display:-webkit-box!important;
+        -webkit-box-orient:vertical;
+        -webkit-line-clamp:2;
+    }
+    .activity-status{
+        position: absolute;
+        bottom:10px;
+        right:-10px;
+        color: #11a8ee;
+        text-align: right;
+        font-size: 14px;
+        height:20px!important;
+    }
+    .activity-status-no{
+        position: absolute;
+        bottom:10px;
+        right:-10px;
+        color: #11a8ee;
+        font-size:14px;
+        text-align: right;
+        height:20px!important;
+    }
+    .activity-status-ok{
+        position: absolute;
+        bottom:10px;
+        right:-10px;
+        color: #11a8ee;
+        font-size:14px;
+        text-align: right;
+        height:20px!important;
+    }
+    /*活动列表样式结束*/
+    /*活动详情样式开始*/
+    .web-title{
+        display: none;
+    }
+    .mob-title .info{
+        color:#d3222b !important;
+    }
+    .activity-detail-wrap{
+        width:100%;
+        overflow-x: hidden;
+        background-color: #efefef;
+        padding-bottom:0px;
+    }
+    .activity-info-wrap{
+        margin-top: 10px;
+        background-color: #ffffff;
+        padding:0 0 0 10px;
+    }
+    .activity-info-wrap ul{
+        margin-bottom: 0;
+    }
+    .activity-info-wrap .activity-mobile-title{
+        border-bottom: none !important;
+    }
+    .activity-info-wrap li{
+        height:50px;
+        border-bottom: 1px solid #efefef;
+    }
+    .activity-info-wrap li:last-child{
+        height:50px;
+        border-bottom: none;
+    }
+    .activity-info-wrap li img{
+        height:30px;
+        margin: 10px 10px 10px 0;
+    }
+    .activity-info-wrap li .title{
+        padding:0 0;
+    }
+    .activity-info-wrap li .info{
+        padding:0 0;
+        line-height:50px;
+        padding-right: 10px;
+        text-align: right;
+        color:#333333;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .purchase-commitment{
+        padding:0 0;
+    }
+    .web-wrap-title{
+        display: none;
+    }
+    .mob-wrap-title{
+        height:50px;
+        line-height:50px;
+        padding:0 0;
+        white-space: nowrap;
+        overflow:hidden;
+        text-overflow: ellipsis;
+    }
+    .mob-wrap-title .line-one{
+        display: block;
+        height:1px;
+        line-height:1px;
+        padding:0 0;
+        background-color:#bfbfbf;
+        float: left;
+        margin-top:24.5px;
+    }
+    .mob-wrap-title .line-two{
+        display: block;
+        height:1px;
+        line-height:1px;
+        padding:0 0;
+        background-color:#bfbfbf;
+        float: left;
+        margin-top:24.5px;
+    }
+    /*活动详情样式结束*/
+    /*每月最低约定进货额*/
+    .purchase-commitment-wrap-web{
+        display: none;
+    }
+    .purchase-commitment-wrap-mob{
+        padding: 0 0;
+        margin-bottom: 0px;
+        background-color: #ffffff;
+        text-align: center;
+    }
+    .purchase-commitment-wrap-mob .div-table{
+        border-bottom: 1px solid #EFEFEF;
+    }
+    .purchase-commitment-wrap-mob .div-table div{
+        border-right: 1px solid #EFEFEF;
+    }
+    .purchase-commitment-wrap-mob .div-table div:last-child{
+        border-right: none;
+    }
+    .purchase-commitment-wrap-mob .div-table div p{
+        margin:10px 0 0 0;
+        line-height: 20px;
+    }
+    .purchase-commitment-wrap-mob .div-table div p:last-child{
+        margin:0 0 10px 0;
+        line-height: 20px;
+    }
+    .purchase-commitment-wrap-mob div{
+        padding: 0 0;
+    }
+    .purchase-commitment-wrap-mob .no-finish{
+        color: #00FF00;
+    }
+    .purchase-commitment-wrap-mob .finish{
+        color: red;
+    }
+    .tip-info{
+        height:44px;
+        line-height: 44px;
+        color: #333333;
+        text-align: right;
+        background-color: #ffffff;
+        padding:0 10px 0 0;
+    }
+    /*活动详情样式结束*/
+    /*生动化项开始*/
+    .trend-wrap{
+        padding:0 0;
+    }
+    .trend-list-wrap-web{
+        display: none;
+    }
+    .trend-list-wrap-mob{
+        padding:0 0;
+        background-color: #ffffff;
+        font-size: 14px;
+    }
+    .trend-list-wrap-mob li div{
+        padding:0 0;
+    }
+    .trend-list-wrap-mob li{
+        position: relative;
+        height:70px;
+        padding:0 0;
+        margin:0 0 0 10px;
+        border-bottom: 1px solid #EFEFEF;
+    }
+    .trend-list-wrap-mob li:last-child{
+       border-bottom: none;
+    }
+    .trend-list-wrap-mob .title{
+        height:35px;
+        line-height:35px;
+        overflow: hidden; /*自动隐藏文字*/
+        text-overflow: ellipsis;/*文字隐藏后添加省略号*/
+        white-space: nowrap;/*强制不换行*/
+        width: 80%;/*不允许出现半汉字截断*/
+    }
+    .trend-list-wrap-mob .trend-logo{
+        float: left;
+        height:70px;
+        line-height: 70px;
+    }
+    .jc{
+        color: red;
+        position: absolute;
+        top:7px;
+        left:34px;
+    }
+    .trend-list-wrap-mob .money-hot{
+        position: absolute;
+        height:20px;
+        line-height:20px;
+        left:40px;
+        bottom:10px;
+    }
+    .trend-list-wrap-mob .money-cold{
+        position: absolute;
+        height:20px;
+        line-height:20px;
+        left:170px;
+        bottom:10px;
+    }
+    /*生动化项结束*/
+}
+/* 检查结果 */
+
+.checklogo{
+	width: 28px;
+	height: 28px;
+	margin-left: 5px;
+}
+.toseedetail{
+	width: 10px;
+	height: 20px;
+}
+.checktime{
+	width: 40%;
+	text-align: left;
+}
+.toseelogo{
+	width: 10px;
+	height: 15px;
+	margin-left: 5px;
+	margin-top: -2px;
+}
+.resultlist{
+	display: flex;
+}
+.checkresult{
+	width:12%;
+	color:#48b940;
+	text-align: center;
+}
+.checkdetail{
+	width: 35%;
+	cursor: pointer;
+	text-align: right;
+}

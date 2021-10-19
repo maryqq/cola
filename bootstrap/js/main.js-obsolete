@@ -1,0 +1,1504 @@
+function web_wrap() {
+	var W = $(window).width();
+	var H = $(window).height();	
+	if ( W < 768 ){
+		$('body').removeClass("vt").removeClass("vt880"). removeClass("pc").addClass("mob");
+		$('.cm-list>a').removeClass('cm-order');
+		$(".co-customer-info").find("div").eq(1).addClass('.co-activity-field');	
+		
+	} else if( W < 980 & W > 767 ) {
+		$('body').removeClass("mob"). removeClass("pc").addClass("vt");
+		$('.cm-list>a').removeClass('cm-order');
+		if($("#m_p_list").hasClass("hover")){
+			$(".dropdown-menu").fadeIn();
+		}
+		if( W < 880){
+			$('body').addClass("vt880");
+		}
+		
+		if(slider){
+			slider.destroySlider();
+		}
+				//top kpi page issue fixed
+			$(".tab2").removeClass("active");
+			$(".tab1").addClass("active");
+			$(".tabcontent1").removeAttr("style");
+			$(".toggleTitle").removeClass("toggleactive");
+			$(".tabcontent1 .toggleTitle").addClass("toggleactive");
+		if($(".toggleContent").attr("style")){
+			$(".toggleContent").removeAttr("style");
+		}
+	} else {
+
+		$('body').removeClass("vt").removeClass("vt880").removeClass("mob").addClass("pc");
+		if($(".header-top .nav-bar,#primary-nav, #myCon").is(":hidden")){
+			$(".header-top .nav-bar,#primary-nav, #myCon").fadeIn("fast");
+		}
+		if($("#m_p_list").hasClass("hover")){
+			$(".dropdown-menu").removeAttr("style");
+		}
+		if($(".cat-box").attr("style")){
+			$(".cat-box").removeAttr("style");
+		}	
+		if($("#mask").attr("style")){
+			$("#mask").removeAttr("style");
+		}
+		if($(".tabcontents>div").attr("style")){
+			$(".tabcontents>div").removeAttr("style");
+		}
+		if($(".toggleContent").attr("style")){
+			$(".toggleContent").removeAttr("style");
+		}
+	}
+    
+	if( W < 375 ){
+		$('.cm-mob-titlelist').css('width','280px');
+		$('.cm-mob-titlelist span').eq(3).css('display','none');
+	}
+    if( W > 1024){
+			$('.pc-list-total').addClass('.sa-list-total').css('left','66.5%');
+			$('.col-order-date span').css('padding-right','4.5%');
+		}
+}
+//check whether the device is mobile
+function del_wrap() {
+	var W = $(window).width();
+	if(W < 769){	
+	}
+}
+function isMobile(){
+	var regExp =/Android|BlackBerry|iPhone|iPod|Opera Mini|IEMobile|iPad/i;
+	if(navigator.userAgent.match(regExp)){
+		return true;
+	}else{
+		return false;	
+	}	
+}
+var slider,slider_pc,slider_m;
+function m_slider(obj) {
+	slider = $(obj).bxSlider({
+			pager:false,
+			controls:false,
+			minSlides: 2,
+			maxSlides: 100,
+			slideWidth: 106,
+			infiniteLoop:false,
+	});
+}
+//validate whether it support 'placeholder' attribute for input
+function placeholderSupport() {
+    return 'placeholder' in document.createElement('input');
+}
+
+
+//CartOverlay - if pNum > 0 will show the details, if pNum <= 0 will show a link
+function cartOverlayShow(pNum) {
+	if(pNum > 0){
+		$(".order-my .ord-details").css("display","block");
+		$(".order-my .ord-nodata").css("display","none");
+	} else {
+		$(".order-my .ord-details").css("display","none");
+		$(".order-my .ord-nodata").css("display","block");				
+	}
+}
+
+//product list AD-block sliders 
+var promo_slider;
+
+
+
+$(function(){	
+  //shopping-cart 点击mask iframe消失 begin
+	$("#additional-buy-ID").on("click",function(){
+		if(!$(".mask-content1").hasClass("additional-buy-iframe")){	
+		$("#mask").show();
+		$(".mask-content").show();
+		$(".mask-content1").addClass("additional-buy-iframe");
+		$('html').toggleClass('body-fixed');
+		
+	   } 
+	});
+	$(".mask-content").on("click",".additional-buy-iframe",function(e){	
+		 e.stopPropagation();
+	});
+    $(".mask-content").on("click",function(){
+		$(this).hide();
+		$(".additional-buy-iframe").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("additional-buy-iframe");
+    });
+	 $("#close-mask").on("click",function(){
+         $(".additional-buy-iframe").hide();
+        $(".mask-content").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("additional-buy-iframe");
+    });
+	
+	//shopping-cart 点击mask iframe消失 end
+	//10/12 angela cancel
+ // //shopping-cart 点击mask mask-container消失 begin
+ 	// $("#sc-panel1 .product-img,#sc-panel2 .product-img,.oc-orderlist .product-img,.od-orderlist .product-img,#sc-panel1 .name,#sc-panel2 .name,.oc-orderlist .name,.od-orderlist .name").on("click",function(){
+		// if(!$(".mask-content1").hasClass("mask-container")){	 
+		// $("#mask").show();
+		// $(".mask-content").show();
+		// $(".mask-content1").addClass("mask-container");
+		// $(".mask-container").show();
+		// $('html').toggleClass('body-fixed');
+	   // } 
+	// });
+ $(".mask-content").on("click",".mask-container",function(e){	
+		 e.stopPropagation();
+	});
+	   $(".mask-content").on("click",function(){
+		$(this).hide();
+		$(".mask-container").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("mask-container");
+    });
+	 $("#close-mask1").on("click",function(){
+       $(".mask-container").hide();
+        $(".mask-content").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("mask-container");
+    });
+  //shopping-cart 点击mask mask-container消失 end
+
+   //order-confirm 点击用户条款和法律声明 begin 20161109 Angela add
+	  	$(".business-license").click(function(){
+			var topBottom = ($(window).height()-460)/2;
+			$(".license-iframe").css({"top":topBottom,"bottom":topBottom,"left":"5%","right":"5%"});
+			if(!$(".mask-content1").hasClass("license-iframe")){	 
+			 $("#mask").show();
+			 $(".mask-content").show();
+			$(".mask-content1").addClass("license-iframe");
+			 $(".license-iframe").show();
+			$('html').toggleClass('body-fixed');
+		}
+	});
+	 $(".mask-content").on("click",".mask-container",function(e){	
+		 e.stopPropagation();
+	});
+	   $(".mask-content").on("click",function(){
+		$(this).hide();
+		$(".license-iframe").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("license-iframe");
+    });
+	 $("#close-mask1").on("click",function(){
+       $(".license-iframe").hide();
+        $(".mask-content").hide();
+		$("#mask").hide();
+		$('html').removeClass('body-fixed');
+		$(".mask-content1").removeClass("license-iframe");
+    });
+	//order-confirm 点击用户条款和法律声明 end
+  
+  
+  
+	web_wrap();	
+	del_wrap();
+	$(window).resize(function(){
+		web_wrap();
+		del_wrap();
+/* 		if(slider){slider.reload();}
+		if(slider_pc){slider_pc.reloadSlider();}
+		if(slider_m){slider_m.reloadSlider();} */
+		$('.order-my').css("display","none");
+		$('.cart-menu').removeClass('hover');
+	});
+	var W = $(window).width();
+	 // 判断浏览器是否支持 placeholder
+       
+      function inputCheck() {
+			 if(!placeholderSupport()){
+            var pwdField = $("input[type=password]");
+            for (var i = 0; i < pwdField.length; i++) {
+                var pwdVal = pwdField.eq(i).attr('placeholder');
+                pwdField.eq(i).after('<input class="text-model" type="text" value=' + pwdVal + ' />');
+                pwdField.hide();
+                var textTemp = $('.text-model');
+                textTemp.eq(i).focus(function () {
+                    var org = $(this).prev("input[type=password]")
+                    $(this).hide();
+                    org.show().focus();
+                })
+
+                pwdField.eq(i).blur(function () {
+                    if ($(this).val() == '') {
+                        $(this).hide();
+                        $(this).next("input[type=text]").show();				
+                    }
+                })
+				
+            }
+			$('[placeholder]').focus(function() {
+            var input = $(this);
+			if (input.val() == input.attr('placeholder')) {
+				input.val('');
+				input.removeClass('placeholder');
+			}
+		    }).blur(function() {
+			var input = $(this);
+			if (input.val() == '' || input.val() == input.attr('placeholder')) {
+				input.addClass('placeholder');
+				input.val(input.attr('placeholder'));
+			}
+		    });			
+
+        }
+	}
+        $(window).load(function () {            
+			inputCheck();
+			$(".fpB-verifyno").blur();
+			$("#login-userno").blur();
+			$(".fh-verifyno").blur();
+        });
+		//IE8对password框的特殊处理1.创建一个text框 2获取焦点和失去焦点的时候切换  
+            // var pwdField    = $("input[type=password]");  
+            // var pwdVal      = pwdField.attr('placeholder');  
+            // pwdField.after('<input id="pwdPlaceholder" type="text" value='+pwdVal+' autocomplete="off" />');  
+            // var pwdPlaceholder = $('#pwdPlaceholder');  
+            // pwdPlaceholder.show();  
+            // pwdField.hide();  
+              
+            // pwdPlaceholder.focus(function(){  
+                // pwdPlaceholder.hide();  
+                // pwdField.show();  
+                // pwdField.focus();  
+            // });  
+              
+            // pwdField.blur(function(){ 
+                // if(pwdField.val() == '' ||pwdField.val() == '密码' ||pwdField.val() == '设定新密码' ||pwdField.val() == '重复填写密码') {  
+                    // pwdPlaceholder.show();  
+                    // pwdField.hide();  
+                // }  
+            // });  
+	
+	/* for About page */
+	$(".about-intro-more .more-btn").click(function(){
+		$('.about-intro .read-more').fadeIn();
+		$('.about-intro-more').hide();
+	});
+
+	$('.tab1').click(function(){
+	    $(this).addClass("active");
+	    $(this).siblings().removeClass("active");
+		$('.tabcontent1').show();
+		$('.tabcontent2').hide();
+	});
+	$('.tab2').click(function(){
+    	    $(this).addClass("active");
+    	    $(this).siblings().removeClass("active");
+			$('.tabcontent1').hide();
+    	    $('.tabcontent2').show();
+
+    	});
+
+
+
+$('.toggleTitle').click(function(){
+    if($(this).hasClass("toggleactive")){
+    	    $(this).removeClass("toggleactive");
+    	    $(this).parent().css("height","30");
+    	    $(this).nextAll().hide();
+    	  }else{
+			$('.toggleactive').nextAll().hide();
+			$('.toggleTitle').removeClass("toggleactive");
+			$(this).addClass("toggleactive");
+			$(this).parent().css("height","auto");
+		    $(this).nextAll().show();					
+    	  }
+
+    	});
+    //login function --start--modify by liaojl liguofeng
+     $("#login-btn").click(function (){
+         var errMsg = $("#errMsg");
+         if ($("input[name='userno']").val() == '' || $("input[name='userno']").val() == $("input[name='userno']").attr("placehoder")){
+             //alert("请输入正确的"+$("input[name='userno']").attr("placeholder"));
+             errMsg.html(" * " + "请输入正确的" + $("input[name='userno']").attr("placeholder"));
+             $("input[name='userno']").focus();
+             return false;
+         }
+         if ($("input[name='password']").val() == '' || $("input[name='password']").val() == $("input[name='password']").attr("placehoder")){
+             //alert("请输入正确的"+$("input[name='password']").attr("placeholder"));
+             errMsg.html(" * " + "请输入正确的" + $("input[name='password']").attr("placeholder"));
+             $("input[name='password']").focus();
+             return false;
+         }
+         //$("form[name='login-frm']").submit();
+         user.login();
+     });
+    //--end--modify by liaojl
+	/* main navigation hover beginning*/
+ 	$('.pc #primary-nav li').hover(function() {		
+			if($("#log-successful").is(":visible") && $(".sub_my").is(":visible")){
+				$(".sub_my").fadeOut("fast");
+			}
+			$(this).addClass('hover').children('ul').fadeIn('fast');
+		},
+		function () {
+			$(this).removeClass('hover').children('ul').fadeOut('fast');
+	}); 
+	/* main navigation hover ending*/
+	/* main navigation click beginning */
+	$('.pc #primary-nav li').click(function() {	
+		if($(this).hasClass("hover")){
+			$(this).removeClass('hover');
+			
+		}else{
+			$('#primary-nav li').removeClass("hover");
+			if($("#log-successful").is(":visible") && $(".sub_my").is(":visible")){
+				$(".sub_my").fadeOut("fast");
+			}
+			$(this).addClass('hover');
+		}
+		
+	});
+	
+	//阻止冒泡
+	function stopPropagation(e) {  
+	    e = e || window.event;  
+	    if(e.stopPropagation) { //W3C阻止冒泡方法  
+	        e.stopPropagation();  
+	    } else {  
+	        e.cancelBubble = true; //IE阻止冒泡方法  
+	    }  
+	}  
+	
+
+	$('#order-cart').click(function() {
+		var W = $(window).width();
+		if(W <979) {
+			if($('#m_nav').is(":hidden")) {
+				$(this).addClass('active_btn');
+				$('#m_nav').fadeIn('fast');
+				$(".header-top").css({"padding-bottom":"60px"});
+				return false;
+		    }
+		   else {
+				$(this).removeClass('active_btn');
+				$('#m_nav').fadeOut('fast');
+				$(".header-top").css({"padding-bottom":"0px"});
+				return false;
+		    }
+		}
+	});	
+	// //cart overlay begin - pc 修改闪烁情况angela0519   11/8 Angela cancel 改用css控制
+
+		// $(window).resize(function(){
+		// $('.cart-menu').removeClass('hover');
+		// //$(".order-my").hide();
+		// var W = $(window).width();
+        // if(W > 979) {
+		// $('#order-cart').hover(function(){
+			// if($('.order-my').is(":hidden")) {
+				// $('.cart-menu').addClass('hover');
+					// $(".order-my").show();
+					
+			// }else{
+				 // $('.cart-menu').removeClass('hover');
+				 // $(".order-my").hide();
+			// }
+		// }); 
+	// }
+	// })
+		// $(window).load(function(){
+		// $('.cart-menu').removeClass('hover');
+		// //$(".order-my").hide();
+		// var W = $(window).width();
+        // if(W > 979) {
+		// $('#order-cart').hover(function(){
+			// if($('.order-my').is(":hidden")) {
+				// $('.cart-menu').addClass('hover');
+					// $(".order-my").show();
+					
+			// }else{  
+			        // $('.cart-menu').removeClass('hover');
+					// $(".order-my").hide();
+					 
+			// }
+		// }); 
+	// }
+	// })
+	
+	// //cart overlay end - pc 修改闪烁情况angela0519
+	
+	
+	//cart overlay - mobile
+	$('#mob-cart-menu').click(function() {
+		var W = $(window).width();
+		if(W < 980||W > 1024) {
+			window.location.href = "shopping-cart.html";
+		}
+	});
+	$('#pay-btn').click(function(){
+		window.location.href = "shopping-cart.html";
+    })
+	$('#pay-btn.pay-btn-MCD').click(function(){
+		window.location.href = "shopping-cart-MCD.html";
+    })
+/*	$('.order-my').click(function(e) {
+		stopPropagation(e);	
+	});*/
+	
+	/* main navigation click ending */
+
+	
+	//my-acc click event
+    var flg='none';
+	$('.my-acc').click(function(){
+		if(flg=='none'){
+			$(".sub_my").css('display','none');
+		}
+		
+		if($(".sub_my").css('display')=='block'){
+			$(".sub_my").css('display','none');	
+		}else{
+			$(".sub_my").css('display','block');
+			flg='block';
+		}
+	})
+	$('.sub_my li').click(function(e) {
+		stopPropagation(e);	
+	});
+   
+	
+	 $('.pc #accFather').hover(function(){
+
+		 if($('.sub_my').is(":hidden")) {
+		 $(this).find('.my-acc').addClass('hover');
+			 $(".sub_my").show();
+			 $(".account-mask").show();
+		}
+	 },
+	 function(){
+	    if($(this).find('.my-acc').hasClass('hover')){
+		 $(this).find('.my-acc').removeClass('hover');
+		 $(".sub_my").hide();
+		  setTimeout(function(){
+			  $(".account-mask").hide();
+		  },1000)
+		 
+		}
+	}); 
+	
+		$('.my-acc').on("click",function() {	
+			if(!$(this).hasClass('hover')) {
+		        $(this).addClass("hover");
+				$(this).removeClass("extraclass1");
+				$('.sub_my').show();
+
+			}else{
+				$('.sub_my').css('display','none');
+			    $('.my-acc').removeClass("hover");
+				$(this).addClass("extraclass1");
+
+			}
+		
+	});
+
+		
+	
+	
+	
+ 	// $('#accFather').hover(function() {
+ 		// var W = $(window).width();
+		// if(W > 979){
+			// if($('.sub_my').is(":hidden")) {
+				// $(this).find('.my-acc').addClass('hover');
+				// $(".sub_my").fadeIn('fast');
+				// return false;
+			// }else{
+				 // $(this).find('.my-acc').removeClass('hover');
+				 // $(".sub_my").fadeOut('fast');
+				 // return false;
+			// }
+		// }
+	// });	 
+	/*hambergur menu click event beginning  */
+	$('#nav_btn').click(function(){
+		if($('#m_nav').is(":hidden")) {
+			$(this).addClass('active_btn');
+			$('#m_nav').fadeIn('fast');
+			$(".header-top").css({"padding-bottom":"60px"});
+			return false;
+		}
+		else {
+			$(this).removeClass('active_btn');
+			$('#m_nav').fadeOut('fast');
+			$(".header-top").css({"padding-bottom":"0px"});
+			return false;
+		}
+	});	
+	/*hambergur menu click event ending  */
+	/* header images sliders on Homepage beginning*/
+	$("#heroImg").flexslider({
+		 animation: "slide",
+		 directionNav:false		
+	});
+	/* header images slider on Homepage ending*/
+	/* Advertisement sliders on Homepage beginning*/
+	$("#slider-box").flexslider({
+		 animation: "slide",
+		 directionNav:false,
+		 slideshowSpeed:9000
+	});
+	$(".flexslider").flexslider({
+		 animation: "slide",
+		 controlNav: "thumbnails"
+	});
+	/* Advertisement sliders on Homepage ending*/
+	/* add to cart button click */
+	// $(".cart-add-btn").click(function(){                                           //20161205 Angela cancel根据swire要求针对jira1595
+		// $(this).removeClass("cart-add-btn").addClass("cart-progress");
+		// $(this).text("处理中");
+	// });
+	
+	$(".cart-add-btn").not(".additionalProduct-add-btn").click(function(){       //20161205 Angela add根据swire要求针对jira1595
+    $(this).removeClass("cart-add-btn").addClass("cart-progress"); 
+    $(this).text("处理中"); 
+    addCart(this);	
+}); 
+
+	/* products category menus show or hide on phone beginning*/
+	$('#m_p_list').click(function() {		
+		if(!$(this).hasClass('hover')){
+				$(this).addClass('hover');
+				$("#primary-nav").fadeIn();
+				$("#primary-nav .dropdown-menu").fadeIn();
+				if(isMobile()){
+					m_slider($("#primary-nav .dropdown-menu"));
+				}
+				;	
+		}else{
+			$(this).removeClass('hover');
+			$("#primary-nav").fadeOut();
+			$("#primary-nav .dropdown-menu").fadeOut();
+		}
+		return false
+	});
+	/* products category menus show or hide on phone ending*/
+	/* search button click event beginning*/	
+	$(".pc .btn-s").click(function(){
+			$(".pc .form-control").focus();
+			return false;
+	});
+	/* search button click event ending*/	
+	/* search button function  */
+	$(".search_box button").click(function(){
+		$(".search_box form").submit();	
+	});
+	
+	$(".pc .filter-btn").hover(function(){
+		$(this).addClass("hover");
+		
+	},function(){
+		$(this).removeClass("hover");
+	});
+	//移动端点击选中，再点击取消
+	$(".mob .filter-btn").click(function(){
+		if(!$(this).hasClass("hover")){
+			 $(this).addClass("hover");
+			 $(this).next().css("color","#FFF");
+		}else{
+		 $(this).removeClass("hover");
+		 $(this).next().css("color","#ce322b");
+	}
+	});
+
+	/* photos slider on product detail page beginning  */
+	$(".photos-slider").bxSlider({
+		pagerCustom: '#bx-pager',
+		slideMargin:1,
+		nextSelector: '#photo_next',
+		prevSelector: '#photo_prev',
+	});
+	/* photos slider on product detail page ending  */	
+	
+	// the AD-block sliders on product list Page
+	if(W>980){
+		var slideWidth =$(window).width()/4;
+		if(W<=1024){
+			slideWidth = $(window).width()/4;
+		}
+		promo_slider = $('#promotion-list').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 4,
+		  slideWidth: slideWidth,
+		  infiniteLoop: false,
+		  hideControlOnEnd: true,
+		  controls:true,
+		  pager:false
+		});	
+	}else{
+		promo_slider = $('#promotion-list').bxSlider({
+		  minSlides: 1,
+		  controls:true,
+
+		  pager:false
+		});
+	}
+
+    //social-media 微信图标等点击出现二维码滚动事件 begin
+	$(".QR-code-click").click(function(){
+		if($('.QR-code-mask1').is(":hidden")){
+				$(".QR-code-mask1").show();
+				$(".QR-code-mask2").hide();
+				$(".QR-code-mask3").hide();
+				$(".QR-slides-title1").show();
+				$(".QR-slides-title2").hide();
+				$(".QR-slides-title3").hide();
+				$(document).scrollTop(2500);
+				if(W>980){
+				var slideWidth =$(window).width()/5;
+				if(W<=1024){
+				var	slideWidth = $(window).width()/5;
+				}
+				promo_slider = $('.QR-code-mask1 #QR-list1').bxSlider({
+				  minSlides: 1,
+				  maxSlides: 5,
+				  slideWidth: slideWidth,
+				  infiniteLoop: false,
+				  hideControlOnEnd: true,
+				  controls:true,
+				  pager:false
+				});	
+			}else{
+				promo_slider = $('#QR-list1').bxSlider({
+				  minSlides: 1,
+				  controls:true,
+
+				  pager:false
+				});
+			}
+		}
+
+	})
+		$(".wechat-click").click(function(){
+		if($('.QR-code-mask2').is(":hidden")){
+				$(".QR-code-mask2").show();
+				$(".QR-code-mask1").hide();
+				$(".QR-code-mask3").hide();
+				$(".QR-slides-title1").hide();
+				$(".QR-slides-title2").show();
+				$(".QR-slides-title3").hide();
+				$(document).scrollTop(2500);
+				if(W>980){
+				var slideWidth =$(window).width()/5;
+				if(W<=1024){
+				var	slideWidth = $(window).width()/5;
+				}
+				promo_slider = $('.QR-code-mask2 #QR-list2').bxSlider({
+				  minSlides: 1,
+				  maxSlides: 5,
+				  slideWidth: slideWidth,
+				  infiniteLoop: false,
+				  hideControlOnEnd: true,
+				  controls:true,
+				  pager:false
+				});	
+			}else{
+				promo_slider = $('#QR-list2').bxSlider({
+				  minSlides: 1,
+				  controls:true,
+
+				  pager:false
+				});
+			}
+		}
+
+	})
+	$(".sina-click").click(function(){
+		if($('.QR-code-mask3').is(":hidden")){
+				$(".QR-code-mask3").show();
+				$(".QR-code-mask1").hide();
+				$(".QR-code-mask2").hide();
+				$(".QR-slides-title1").hide();
+				$(".QR-slides-title2").hide();
+				$(".QR-slides-title3").show();
+				$(document).scrollTop(2500);
+				if(W>980){
+				var slideWidth =$(window).width()/5;
+				if(W<=1024){
+				var	slideWidth = $(window).width()/5;
+				}
+				promo_slider = $('.QR-code-mask3 #QR-list3').bxSlider({
+				  minSlides: 1,
+				  maxSlides: 5,
+				  slideWidth: slideWidth,
+				  infiniteLoop: false,
+				  hideControlOnEnd: true,
+				  controls:true,
+				  pager:false
+				});	
+			}else{
+				promo_slider = $('#QR-list3').bxSlider({
+				  minSlides: 1,
+				  controls:true,
+
+				  pager:false
+				});
+			}
+		}
+
+	})
+
+	$(".QR-code-mask1 .close-reveal-modal").click(function(){
+		$(".QR-code-mask1").hide();
+		promo_slider.destroySlider();
+		
+	})
+	$(".QR-code-mask2 .close-reveal-modal").click(function(){
+		$(".QR-code-mask2").hide();
+		promo_slider.destroySlider();
+		
+	})
+	$(".QR-code-mask3 .close-reveal-modal").click(function(){
+		$(".QR-code-mask3").hide();
+		promo_slider.destroySlider();
+		
+	})
+	
+	 //social-media 微信图标等点击出现二维码滚动事件 end
+	
+	
+	
+	
+	/* product ad slider beginning */
+
+		var slideWidth =($(window).width()-280)/3;
+		if(W<=1024){
+			slideWidth = ($(window).width()-160)/3;
+		}
+		//if image number > 3 will show prev and next in pc
+		$('#product-ads').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 3,
+		  slideWidth: 315,
+		  controls:true,
+		  pager:false
+		});	
+		$('#videos').bxSlider({
+		  minSlides: 1,
+		  maxSlides: 3,
+		  slideWidth: 315,
+		  controls:true,
+		  pager:false
+		});	
+	
+	/* product ad slider ending */
+	
+    //展开当前搜索条件，折叠其它搜索文件，BY ZKF
+	$(".cat-nav li").click(function(){
+		$.each($(".cat-items > li"),function(index,item){
+		    $(item).removeClass("hover");
+		});
+		$(".cat-items > li").eq($(this).index()).addClass("hover");
+	});
+	
+	$(".cat-items > li > a").click(function(e){
+		if($(this).parent().hasClass("hover")){
+			$(this).parent().removeClass("hover");
+		}else{
+			$(this).parent().addClass("hover");
+		}
+	});
+	
+    // topkpi mobile error ,update by zkf
+	$(".siderbar-toggle").click(function(){
+	    var height= $(".list-box").height();
+	    //$("#mask").css({"height":height+20});
+	    $(".cat-box").toggle("fast");
+		
+		
+	});
+	
+	//processing the data of pagination
+	$("#pro-list-prev").click(function(){
+		var height =$(".list-box").height();
+		var height =$("#mask").css({"height":height+20});
+		$("#mask").fadeIn();
+		$("#hint_content").fadeIn();
+		/*放数据处理代码块*/
+		setTimeout(function(		
+		){$("#hint_content").fadeOut();$("#mask").fadeOut();},1000);
+		
+	}); 
+	$("#pro-list-next").click(function(){
+		var height =$(".list-box").height();
+		var height =$("#mask").css({"height":height+20});
+		$("#mask").fadeIn();
+		$("#hint_content").fadeIn();
+		/*放数据处理代码块*/
+		setTimeout(function(		
+		){$("#hint_content").fadeOut();$("#mask").fadeOut();},1000);
+		
+	}); 
+	/* for product list page ending */
+
+	/* for Account page beginning */
+	//click button named more
+	$(".account-tb .more-btn").click(function(){
+		$(".toggle-tb").fadeIn("fast");
+		$(this).fadeOut("fast");
+	});
+	
+	$(".account-info a").click(function(){
+		if($(this).parent(".col-title").parent(".col-md-6").hasClass("hover")){
+			$(this).parent(".col-title").parent(".col-md-6").removeClass("hover");
+		}else{
+			$(this).parent(".col-title").parent(".col-md-6").addClass("hover");
+		}
+	});
+	/* for Account page ending */
+	
+	//first login confirmation
+	$("#confirm-btn").click(function(){
+		var topBottom = ($(window).height()-260)/2;
+		var leftRight = ($(window).width()-220)/2
+		$(".login-hint").css({"top":topBottom,"bottom":topBottom,"left":leftRight,"right":leftRight});
+
+		$("#mask").fadeIn();
+		$(".login-hint").fadeIn();
+		setTimeout(function(){
+			$("#mask").fadeOut();
+			$(".login-hint").fadeOut();
+			location.href=location.href.substring(0,location.href.lastIndexOf("/"))+"/login.html";
+		},2000);
+		
+		//$('form[name="flogin-frm"]').submit();//后期需要自行释放注释
+	});
+	//confirm order click事件
+	$("#confirm-order-btn").click(function(){
+		if($(".icheckbox_square-red").hasClass("checked")){                         /*10/21 angela add if条件*/
+			 var topBottom = ($(window).height()-236)/2;
+			var leftRight = ($(window).width()-220)/2
+			$(".oc-hint").css({"top":topBottom,"bottom":topBottom,"left":leftRight,"right":leftRight});
+			$(".oc-success-hint").css({"top":topBottom,"bottom":topBottom,"left":leftRight,"right":leftRight});
+
+			$("#mask").fadeIn();
+			$(".oc-hint").fadeIn();
+			$(".close-reveal-modal").hide();           /*20161109 angela add*/
+			setTimeout(function(){
+				//$("#mask").fadeOut();
+				$(".oc-hint").fadeOut();
+				$("#mask").fadeIn();
+				$(".oc-success-hint").fadeIn();
+			},2000);		
+			setTimeout(function(){
+				$("#mask").fadeOut();
+				$(".oc-success-hint").fadeOut();
+				location.href=location.href.substring(0,location.href.lastIndexOf("/"))+"/confirmation-message.html";
+
+			},5000);	
+	    }
+			
+	});
+	
+	$(".laststep").click(function(){
+		location.href=location.href.substring(0,location.href.lastIndexOf("/"))+"/shopping-cart.html";
+     })
+
+	$('html, body').animate({scrollTop: 0}, 500);
+	var winHeight = $(document.body).scrollTop();
+	var baseHeight = $(document).scrollTop();//滚动条的初始位置
+	
+	var wh = $(window).height();	//设备屏幕高度
+	var bh= $(document.body).height();
+	var divTop = $(".photos-section").height()+$(".pro-box").height()+$(".header").height();
+	// var shopCartTop = $(".sc-list").height()+$(".steps").height()+$(".mobtitle").height()+$(".header").height()+90;             /*20161114 angela cancel*/
+	var shopCartTop = $("#sc-panel1").height()+ $("#sc-panel2").height()+$(".steps").height()+$(".mobtitle").height()+$(".header").height()+90;    /*20161114 angela add*/
+	var divH = $(".group .cart-control").height();
+    $(window).scroll(function() {
+		
+		
+        var scrollY = $(document).scrollTop();// 获取垂直滚动的距离，即滚动了多少
+        
+			/* hide or show header navigation bar beginning  */				
+			if(baseHeight<scrollY){
+				$('.header').addClass('header-hidden');	
+			}
+			if(baseHeight>scrollY){
+				
+				$('.header').removeClass('header-hidden');				
+			}
+			if (scrollY <= winHeight){
+				$('.header').removeClass('header-hidden');
+			}
+			setTimeout(function(){baseHeight = scrollY},0);	
+			/* hide or show header navigation bar ending */
+			var W = $(window).width();
+			if(W < 980){
+				//当滚动条滚动距离超出cart-control上端
+				if(scrollY >= divTop){
+					$(".group .cart-control").css({"top":"auto","bottom":"auto",'position':"relative"});
+				}else{					
+					$(".group .cart-control").css({"top":"auto","bottom":"0",'position':"fixed"});
+				}
+				shopCartTop = $(".steps").height()+$(".mobtitle").height()+$(".header").height()+90;       //20161129 angela 根据swire开发要求添加
+                 $(".sc-list").each(function(){
+                shopCartTop += $(this).height();
+                   });
+				//滚动条到最底端时
+				if((scrollY + wh) < shopCartTop) {
+				
+					//show footer when scroll height add window height less than top of the total
+					shopCartCssFooter();
+				} else {
+					//revert tot normal css
+					shopCartCssRevertMob();
+				}
+			}
+	
+			/* On product detail page, cart will float ending */
+     });
+	
+	
+	/* Change rem to px */
+	 (function (doc, win) {
+		var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function () {
+				var clientWidth = docEl.clientWidth;
+				if (!clientWidth) return;
+				docEl.style.fontSize = 100 * (clientWidth / 1920) + 'px';
+			};
+
+		if (!doc.addEventListener) return;
+		win.addEventListener(resizeEvt, recalc, false);
+		var loadEvent = 'load';
+		win.addEventListener(loadEvent,recalc,false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	})(document, window);
+
+	 /* T40 Rebate - popup div */
+		$('#r-cash-mob,#cash-click').click(function() {                         /*10/12 angela update 选择器更新*/
+			if(!$("#r-cash-pc").hasClass('hover')||!$("#r-cash").hasClass('hover')){
+					$("#r-cash-pc").addClass('hover');
+					$("#r-cash").addClass('hover');
+					$("#cash-rebate").fadeIn();
+					$("#r-product-pc").removeClass('hover');
+					$("#r-product").removeClass('hover');
+					$("#product-rebate").fadeOut();
+					return false;
+			}else{
+				$("#r-cash-pc").removeClass('hover');
+				$("#r-cash").removeClass('hover');
+				$("#cash-rebate").fadeOut();
+			}
+		});
+		
+		$('#r-product-mob,#product-pc').click(function() {                   /*10/12 angela update 选择器更新*/
+			if(!$("#r-product-pc").hasClass('hover')||!$("#r-product").hasClass('hover')){
+					$("#r-product-pc").addClass('hover');
+					$("#r-product").addClass('hover');
+					$("#product-rebate").fadeIn();
+					$("#r-cash-pc").removeClass('hover');
+					$("#r-cash").removeClass('hover');
+					$("#cash-rebate").fadeOut();
+					return false;
+			}else{
+				$("#r-product-pc").removeClass('hover');
+				$("#r-product").removeClass('hover');
+				$("#product-rebate").fadeOut();
+			}
+		});
+		 $(window).bind( 'orientationchange', function(event){	
+			if(window.orientation==90 || window.orientation==-90){	
+				if($("#m_p_list").hasClass("hover") || $(".nav-bar").attr("style")){
+					history.go(0);
+				}	
+			}
+			
+		});
+		 
+		$("#sc-tem-id").addClass("save-tem").css({"display":"block"});
+
+		window.onload = changeSize;
+		
+		window.onresize = changeSize;
+		function changeSize() {
+			var W = $(window).width();
+			if(W > 1000) {
+				$('.promotion .right').height($('.promotion .left img').height()-30);			
+			}
+			$('.ord-detail dl').height($('.ord-img img').height()+5);
+			$('.ad-list .col-md-4 img').width($('#product-ads li').width()-10);
+			
+			if(W > 979){
+			    shopCartCssPC();
+			    $('.kind_notice').css({'float':'left','left':'600px'})
+			} else {
+				if(!$(".save-tem").is(":hidden")){
+					shopCartCssMob();
+					var scrollY = $(document).scrollTop();
+					if((scrollY + wh) < shopCartTop){
+						shopCartCssFooter();
+					}
+				}
+				$('.kind_notice').css({ 'float': 'left', 'left': '0px' })
+			}
+		}
+		
+		/* shopping cart pc css */
+		function shopCartCssPC() {
+			$("#sc-tem-id,#sc-total-id,#sc-next-btn,#sc-footer-id").removeAttr("style");
+			$("#sc-tem-id").addClass("save-tem").css({"clear":"both","margin":"30px 9.22% 15px 0px"});
+			$("#sc-total-id").addClass("sc-total");
+			$("#sc-footer-id").addClass("sc-footer");			
+		}
+		
+		/* shopping cart mob css */
+		function shopCartCssMob() {
+			$("#sc-tem-id,#sc-total-id,#sc-next-btn,#sc-footer-id").removeAttr("style");
+			$("#sc-tem-id").addClass("save-tem").css({"position":"absolute","left":"0px","bottom":"1px","margin":"0","clear":"both"});
+			$("#sc-total-id").addClass("sc-total").css({"position":"absolute","top":"0px","clear":"both","width":"100%","margin":"0","text-align":"left","float":"right","left":"0"});	
+			$("#sc-footer-id").addClass("sc-footer").css({"position":"relative","height":"100px","bottom":"0","top":"auto","background-color":"#fff","margin":"10px 4% 65px","width":"auto","clear":"both","box-sizing":"border-box","z-index":"98","padding":"0"});			
+		    // $("#sa-total-id").addClass("sa-total").css({"top":"auto"});
+		}
+		
+		/* shopping cart slider footer css for mobile */
+		function shopCartCssFooter() {
+			$(".save-tem").css("display","none");
+			$(".sc-footer").css({'position':"fixed","height":"50px","width":"100%","margin":"0px","border-top":"1px solid #8a8c8f","border-bottom":"1px solid #8a8c8f","z-index":"9999"});
+			$(".sc-total").css({"top":"auto","bottom":"5px","width":"70%","left":"4%"});
+			$('.coB-total').css("width","100%");
+			$(".extraclass1").css({"top":"-20px"});
+			$(".next-btn").css({"top":"5px"});	
+			$(".extraclass2").css({"top":"0px",'position':'relative'});				
+		}
+		
+		/* shopping cart returns from footer css */
+		function shopCartCssRevertMob() {
+			$(".save-tem").css("display","block");
+			$(".sc-footer").css({'position':"relative","height":"100px","width":"auto","margin":"10px 4% 65px","border":"none","z-index":"98"});
+			$(".sc-total").css({"top":"0px","bottom":"auto","width":"100%","left":"0"});
+			$(".next-btn").css({"top":"auto"});	
+            $(".extraclass1").css({"top":"130px"});			
+            $(".extraclass2").css({"top":"50px"});			
+		}
+		//shopping cart delete and redelete
+		//pc
+		$('body').delegate('.list-tudel','click',function(){
+			$(this).parent(".list-del").children(".list-tudel").hide();
+			$(this).parent(".list-del").children(".list-redel").show();
+			$(this).parent(".list-del").parent(".table-row").addClass("gray");
+			$(this).parent(".list-del").parent(".table-row").find(".table-row-mask").css('display','block');
+			$(this).parent(".list-del").parent(".table-row").find('input').attr('disabled',true);
+            		
+		})
+		$('body').delegate('.list-redel','click',function(){
+			$(this).parent(".list-del").children(".list-tudel").show();
+			$(this).parent(".list-del").children(".list-redel").hide();
+			$(this).parent(".list-del").parent(".table-row").removeClass("gray");	
+            $(this).parent(".list-del").parent(".table-row").find(".table-row-mask").css('display','none');	
+            $(this).parent(".list-del").parent(".table-row").find('input').attr('disabled',false);			
+		})
+		
+		
+		$('#order-cart .ord-detail').click(function() {
+			window.location.href = "product-detail.html";
+		});
+		/* order detail mob show or hidden total section */
+		$("#order-total,.pay-detail .drop-icon").click(function(){
+			if(!$(this).parent().hasClass('hover')){
+					$(this).parent().addClass('hover');
+					$(this).parent().nextAll().fadeIn('fast');
+					return false;
+			}else{
+				$(this).parent().removeClass('hover');
+				$(this).parent().nextAll().fadeOut('fast');
+			}
+		});
+
+		//order list hover
+		$(".order-box").hover(function(){
+			$(this).addClass("hover");
+		
+		},function(){
+			$(this).removeClass("hover");
+		
+		});
+
+		// video - ie8
+		var browser = navigator.appName;
+		var b_version=navigator.appVersion;
+		if (browser == "Microsoft Internet Explorer") {
+			var version=b_version.split(";");
+			var trim_Version=version[1].replace(/[ ]/g,""); 
+			if(trim_Version == "MSIE8.0"){
+				$(".video-embed").css("display","none");
+				$(".video-ie8").css("display","block");	
+			}
+		}
+		
+		//shopping-cart next step
+		
+				$("#sc-next-btn").click(function(){
+				if(!$('.next-btn').hasClass('none-next-btn')){
+				var topBottom = ($(window).height()-236)/2;
+				var leftRight = ($(window).width()-220)/2
+				$(".sc-hint").css({"top":topBottom,"bottom":topBottom,"left":leftRight,"right":leftRight});
+				$("#mask").fadeIn();
+				$(".sc-hint").fadeIn();
+				$(".close-reveal-modal").hide();                  /*20161110 angela add*/
+				setTimeout(function(){
+					$("#mask").fadeOut();
+					$(".sc-hint").fadeOut();
+					location.href=location.href.substring(0,location.href.lastIndexOf("/"))+"/order-confirm.html";
+				},2000);
+				}
+			});
+	
+		//CartOverlay - if pNum > 0 will show the details, if pNum <= 0 will show a link
+		var pNum = 3;
+		cartOverlayShow(pNum);			      
+        
+});
+      //customer-managemet search textarea
+    $(function() {
+   
+	var inputEl = $('.co-textarea-search'),
+        defVal = inputEl.val();
+    inputEl.bind({
+        focus: function() {
+            var _this = $(this);
+            if (_this.val() == defVal) {
+                _this.val('');
+            }
+        },
+        blur: function() {
+            var _this = $(this);
+            if (_this.val() == '') {
+                _this.val(defVal);
+            }
+        }
+    });
+
+	$('.cm-product-pc').click(function() {
+			if(!$(this).hasClass('hover')){
+					$(".cm-product-pc").removeClass("hover").addClass("dropdown");
+					$(this).removeClass('dropdown');
+					$(this).addClass('hover');
+					if($('body').hasClass('pc')){
+						if($(".cm-overlay").css("display")){
+							$(".cm-overlay").fadeOut("fast");
+						}
+						$(this).parents(".cm-customer-info").next('.cm-overlay').fadeIn("fast");
+						
+					}else{
+						if($(".cm-activity-field").css("display")){
+							$(".cm-activity-field").fadeOut("fast");
+						}
+						$(this).parents(".cm-customer-info").children('.cm-activity-field').fadeIn("fast");
+						$(this).parents(".cm-customer-info").children(".cm-info-one").css("border-bottom","none");
+						$(this).parents(".cm-customer-info").children(".cm-activity-field").css("border-top","1px solid #BDBEBF");
+					}
+					
+					return false;
+			}
+			
+			else{
+				$(this).removeClass('hover');
+				$(this).addClass('dropdown');
+				if($('body').hasClass('pc')){
+					$(this).parents(".cm-customer-info").next('.cm-overlay.m_hidden').fadeOut("fast");
+				}else{
+					$(this).parents(".cm-customer-info").children('.cm-activity-field').fadeOut("fast");
+					$(this).parents(".cm-customer-info").children(".cm-info-one").css("border-bottom","1px solid #BDBEBF");
+					$(this).parents(".cm-customer-info").children(".cm-activity-field").css("border-top","none");
+				}
+			}
+		});
+		
+		$('.co-product-pc').click(function() {
+			if(!$(this).hasClass('hover')){
+					$(this).addClass('hover');
+					if ($('body').hasClass('pc')){
+						$(this).parents(".co-customer-info").next('.co-overlay').fadeIn('fast');
+					}else{
+						$(this).parents(".co-customer-info").children('.co-activity-field').fadeIn('fast');
+					}
+
+					return false;
+			}
+			else{
+				$(this).removeClass('hover');
+				if($('body').hasClass('pc')){
+					$(this).parents(".co-customer-info").next('.co-overlay').fadeOut('fast');
+				}else{
+				     $(this).parents(".co-customer-info").children('.co-activity-field').fadeOut('fast');
+			    }
+		}	
+        });
+		
+		$('.col-product-pc').click(function(){
+			if(!$(this).hasClass('hover')){
+				$(this).addClass('hover');
+				$(this).parents(".col-customer-info").children('.col-activity-field').fadeIn('fast');
+				return false;
+			}
+			else{
+				$(this).removeClass('hover');
+				$(this).parents(".col-customer-info").children('.col-activity-field').fadeOut('fast');
+			}
+		});
+		
+		//customer-order-list hover
+		$(".col-order-box").hover(function(){
+			$(this).addClass("hover");
+		
+		},function(){
+			$(this).removeClass("hover");
+		
+		});
+		//customer-managemet input
+		$('.cm-textarea-search').click(function(){
+			$(this).val() =="在此输入客户编号、名称或地址";
+		$("input").focusin(function() {
+        if($(this).val() =="在此输入客户编号、名称或地址"){  
+            $(this).val("");
+        }
+      });
+		$("input").focusout(function() {
+			if($(this).val() ==""){ 
+				$(this).val("在此输入客户编号、名称或地址");
+			}
+		});
+		});
+		//customer-order mask
+		$( "#co-submit-btn" ).click(function(){
+			$("#mask").fadeIn();
+			jConfirm("<id='hint'><img src='images/activity-cm.png'/>确认提交订单吗？</div>","询问");
+        });
+	 
+	    // //order-confirm-B click event                  /* 0928 angela 放入order-confirm-B页面中 */
+		// $(".sc-list .mc").click(function(){
+			// if($(this).hasClass("hover")){
+				// $(this).removeClass('hover');
+			// } else {
+				// $(".sc-list .mc").removeClass("hover");
+				// $(this).addClass("hover");
+			// }
+	
+		// });
+		
+		//forgot-password-B click event
+		$('#get-verifyno').click(function(){
+			var count = 60;
+			var countdown = setInterval(CountDown, 1000);
+			function CountDown() {
+		    $('.fpB-verify-hint').css('display','block');	
+			$(".no-verifyno").css('display','block');
+			$("#get-verifyno").attr("disabled", true);
+			$('.get-verifyno').addClass('reget-verifyno');		
+			$("#get-verifyno").val("重新发送 " + "("+count +"秒"+")");
+			$(".quicklogin-alert").css("top","120px");
+			if (count == 0) {
+			$("#get-verifyno").removeClass('reget-verifyno');
+			$("#get-verifyno").val("发送验证码").removeAttr("disabled").css({'border-color':' #CE222B','color':' #CE222B'});
+			$('.fpB-verify-hint').css('display','none');
+			clearInterval(countdown);
+			}
+			count--;
+			}	
+		});
+		//"收不到验证码"hover事件 20161207 Angela add针对jira1499
+		$(".no-verifyno,.verifyno-content").hover(function(){
+			$(".verifyno-content").show();
+		},function(){
+			$(".verifyno-content").hide();
+		});
+        //产品旁边的小对话框hover事件
+        $(".remark-alert,.remark").hover(function(){
+			$(".remark").show();
+		},function(){
+			$(".remark").hide();
+		});
+		 $(".mob .remark-alert,.remark").click(function(){
+			if(!$(".remark")is(":hidden")){
+				$(".remark").hide();
+			}else{
+				$(".remark").show();
+			}
+		});
+		//improve-top-kpi mob click event
+		$('#T52-dropdown1').click(function(){
+			$(this).parents('dl').siblings('dl').children('dd').eq(1).children('p').eq(1).hide();
+			$(this).parents('dl').children('dd').eq(1).children('p').eq(1).toggle();
+		});
+		$('#T52-dropdown2').click(function(){
+			$(this).parents('dl').siblings('dl').children('dd').eq(1).children('p').eq(1).hide();
+			$(this).parents('dl').children('dd').eq(1).children('p').eq(1).toggle();
+		});
+		//侧边栏点击图片效果
+	     $(".brand-checkbox-row img").click(function(){
+	    if(!$(this).parent().parent().find("label").hasClass("checked")){
+		 $(this).parent().parent().find("label").addClass("checked");
+		}else{
+		  $(this).parent().parent().find("label").removeClass("checked");
+		}
+		   $(".brandlabel").click(function(){
+	
+		  $(this).toggleClass("checked");
+		
+		
+	  })
+	  })
+	 //mob 产品列表时显示的时候 显示半透明区域 “全部产品”
+	 $(".list-icon").click(function(){
+	   if($(".mob-area #primary-nav").is(":hidden")){
+	       $(".mob-area #primary-nav").show();
+		   $(".dropdown-menu").show();
+		   $(".all-goods").show();
+	   }else{
+	       $(".mob-area #primary-nav").hide();
+		    $(".dropdown-menu").hide();
+		   $(".all-goods").hide();
+	   }
+	 })
+	 
+    $('.top_nav').click(function(){
+		 if($(this).hasClass('hover')){
+	       $(".mob-area #primary-nav").show();
+		   $(".mob-area .dropdown-menu").css('display','block');
+		   $(".all-goods").show();
+	   }else{
+		   $(".mob-area #primary-nav").hide();
+		   $(".mob-area .dropdown-menu").hide();
+		   $(".all-goods").hide();
+	   }
+	})
+	//点击空白区域 二维码消失 begin                    /*10/20 angela update 针对bug 点击广州、浙江二维码会消失*/
+	var mobileDevice = {
+		Android: function() {
+			return navigator.userAgent.match(/Android/i) ? true : false;
+		},
+		iOS: function() {
+			return navigator.userAgent.match(/iPhone|iPad|iPod/i) ? true : false;
+		}
+	};
+	if (mobileDevice.iOS())
+	{
+		$("body").css("cursor","pointer");
+	}
+
+	$("body").on("click",function(){
+		if($(".il-block").hasClass("on")){
+			$(this).removeClass("on")
+		}
+	});
+
+	$(".weixin_nr").click(function(e) {
+		e.stopPropagation();
+	});
+//点击空白区域 二维码消失 end
+	//input框获取焦点后 数字选中
+		
+	 $("input").click(function(){
+	  this.select();
+	 });
+
+	function GetLoginPageURL(){                        /*20161201 Angela 根据swire要求添加*/
+			   var loginURL = "/portal/login";
+			  
+			   $.ajax({
+						url: '/servlet/Satellite?pagename=myscc/service/login/C_getLoginURL',
+						type: 'POST',
+						data: 'mode=1',
+						dataType: 'html',
+						async:false,
+						beforeSend: function() {
+						},
+						success: function(data) {
+								 loginURL = data.trim();
+						},
+						error: function(jqXHR, textStatus, errorThrown) {
+						}
+			   });
+					   
+			   return loginURL;
+	 }
+ 
+});
+
+	$(function() {
+    var inputEl = $('.co-customertextarea-search'),
+        defVal = inputEl.val();
+    inputEl.bind({
+        focus: function() {
+            var _this = $(this);
+            if (_this.val() == defVal) {
+                _this.val('');
+            }
+        },
+        blur: function() {
+            var _this = $(this);
+            if (_this.val() == '') {
+                _this.val(defVal);
+            }
+        }
+    });
+	});
+	
+	$(function() {
+    var inputEl = $('.cm-textarea-search'),
+        defVal = inputEl.val();
+    inputEl.bind({
+        focus: function() {
+            var _this = $(this);
+            if (_this.val() == defVal) {
+                _this.val('');
+            }
+        },
+        blur: function() {
+            var _this = $(this);
+            if (_this.val() == '') {
+                _this.val(defVal);
+            }
+        }
+    });
+	});
+	
+	//forgot-password-A click event
+		function checkName(){
+		var name = document.getElementById('forgot-paw-A').value;
+		if(name =='' || typeof(name) == 'undefined'){
+		   $('.account-alert').css('display','block');
+		   return false;
+         }
+     }
+	 //forgot-password-B click event
+	function onblur1(){		
+		var value1= $("#fpB-passwordID").val();
+		if (value1.length < 6 || value1.length > 10) {
+		    $('.fpB-alert1').css('display', 'block').html("*密码长度6-10位");
+			}else{
+				$('.fpB-alert1').css('display','none');
+			}
+    }
+
+	function onblur2(){
+		var value1= $("#fpB-passwordID").val();
+		var value2= $("#fpB-repasswordID").val();
+		if(value2.length<6 || value2.length>10){
+			$('.fpB-alert2').css('display','block').html("*密码长度6-10位");
+		}else{
+			//$('.fpB-alert2').css('display','none');
+			if(value1!=value2){    
+			$('.fpB-alert2').css('display','block').html("*两次输入密码不同");
+			}else{
+				$('.fpB-alert2').css('display','none');
+			}
+		}
+		
+			
+    }
+	
+
+

@@ -1,0 +1,78 @@
+
+.couponone{
+	position: relative;
+	background-color: #ffffff;
+}
+.cola-coupon{
+	height:16rem;
+	padding:0 2% 0% 2%;
+}
+.colacouponpic{
+	background: url(../../../images/exchangecola/youhuiquan.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+/* .colacouponpic{
+	background: url(../../../images/exchangecola/youhuiquan.png);
+	background-size: 16rem ;
+	background-repeat: no-repeat;
+	height: 100%;
+} */
+
+#couponfailur{
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	color: #383838;
+	font-size: 1.6rem;
+	display: none;
+}
+.changePic{
+	width: 30%;
+	/* height: 60%; */
+	position: absolute;
+	top: 20%;
+	left: 15%;
+}
+#successText{
+	font-size:1.6rem;
+	text-align: center;
+	position: absolute;
+	top:30rem;
+	left: 0;
+	right: 0;
+	display: none;
+}
+#faildText{
+	font-size:1.6rem;
+	text-align: center;
+	position: absolute;
+	top:30rem;
+	left: 0;
+	right: 0;
+	display: none;
+}
+#notexchangeText{
+	margin-top: 2%;
+	font-size: 1.6rem;
+	color: #373737;
+	text-align: center;
+}
+.couponweizhi{
+position: absolute;	
+display: flex;
+flex-direction: column;
+color: #ffd0d0;
+left: 50%;
+height: 100%;
+justify-content: center;
+font-size: 1.4rem;
+
+}
+.coupontype{
+	margin-top: 8%;
+}
+.couponitem{
+	font-size: 1.6rem;
+}

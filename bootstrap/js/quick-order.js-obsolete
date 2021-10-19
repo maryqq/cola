@@ -1,0 +1,128 @@
+$(function(){
+	$('html, body').animate({scrollTop: 0}, 500);
+	var W = $(window).width();
+	var winHeight = $(document.body).scrollTop();
+	var baseHeight = $(document).scrollTop();//滚动条的初始位置
+	var wh = $(window).height();	//设备屏幕高度
+	var bh= $(document.body).height();
+	var dipBot1 =$(".steps").height()+$(".header").height()+$(".sc-list.qo-list-box").height()+30;
+	var dipBot2 =$(".steps").height()+$(".header").height()+$(".sc-list.qo-list-box").height()+30;
+	var dipTop=$(".steps").height()+$(".header").height()+30;
+	var quickorderTop=$(".steps").height()+$(".header").height()+$(".sc-list.qo-list-box").height()+30; //quick-order.html
+	    $(window).scroll(function(){
+			setTimeout(function(){baseHeight = scrollY},0);	
+			var scrollY = $(document).scrollTop();// 获取垂直滚动的距离，即滚动了多少
+			if(W<768){
+				if(scrollY >= dipTop & scrollY < dipBot1 ){
+				$('.qo-sidebar-mob').css({'position':'fixed','top':'0px','bottom':'auto'});
+			    } else {
+				$('.qo-sidebar-mob').css({'position':'relative','top':'auto','bottom':'auto'});
+			    }
+			}else if(767<W<980){
+				if(scrollY >= dipTop & scrollY < dipBot2 ){
+				$('.qo-sidebar-mob').css({'position':'fixed','top':'0px','bottom':'auto'});
+			    } else {
+				$('.qo-sidebar-mob').css({'position':'relative','top':'auto','bottom':'auto'});
+			    }
+			}
+			
+            if(scrollY==0){
+		     $('.qo-sidebar-mob').scrollTop(0);
+	 }
+	 
+			//quick-order页面悬浮栏消失与显现begin 20161125 Angela add
+			if(W < 980){
+				
+				  if((scrollY + wh) < quickorderTop){
+					  shopCartCssFooter();
+				  }else{
+					  shopCartCssRevertMob();
+				  }
+			}else{	
+				  if((scrollY + wh) < quickorderTop+150){
+					  shopCartPCFooter();
+				  }else{
+					  shopCartPCRevert();
+				  }
+			}
+			  //quick-order页面悬浮栏消失与显现end 20161125 Angela add
+     });	 
+		$("#sc-tem-id").addClass("save-tem").css({"display":"block"});
+		window.onload = changeSize;
+		
+		window.onresize = changeSize;
+		function changeSize() {
+			var scrollY = $(document).scrollTop();
+			var W = $(window).width();
+			if(W > 979){
+				
+				if(!$(".save-tem").is(":hidden")){
+					shopCartCssPC();
+					var scrollY = $(document).scrollTop();
+					if((scrollY + wh) < quickorderTop){
+						shopCartPCFooter();
+					}
+				}	
+			} else {
+				if(!$(".save-tem").is(":hidden")){
+					shopCartCssMob();
+					var scrollY = $(document).scrollTop();
+					if((scrollY + wh) < quickorderTop){
+						shopCartCssFooter();
+					}
+				}				 
+			}
+		}
+		
+		/* shopping cart pc css */
+		function shopCartCssPC() {
+			$("#sc-tem-id,#sc-total-id,#sc-next-btn,#sc-footer-id").removeAttr("style");
+			$("#sc-tem-id").addClass("save-tem").css({"clear":"both","margin":"30px 9.22% 15px 0px"});
+			$("#sc-total-id").addClass("sc-total").css({"float":"right","margin":"30px 9.22% 0px 15px","clear":"both","width":"auto"});
+			$("#sc-footer-id").addClass("sc-footer").css({"position":"relative","height":"auto","padding":"0","z-index":"98","text-align":"right"});
+            $(".next-btn").css({"margin":"80px 9.22% 15px 0px"});			
+		}
+		function shopCartPCFooter(){
+			$(".save-tem").css("display","none");
+			$(".sc-footer").css({'position':"fixed","height":"50px","width":"100%","margin":"0px","border-top":"1px solid #8a8c8f","border-bottom":"1px solid #8a8c8f","z-index":"9999","bottom":"0","left":"0","background-color":"#fff"});
+			$(".sc-total").css({"position":"absolute","top":"auto","bottom":"5px","width":"70%","left":"4%","float":"right","margin":"0","text-align":"left"});
+			$(".next-btn").css({"margin":"0","margin-top":"10px","marginRight":"20px"});
+		}
+		function shopCartPCRevert(){
+			$(".save-tem").css("display","block");
+			$("#sc-tem-id,#sc-total-id,#sc-next-btn,#sc-footer-id").removeAttr("style");
+			$("#sc-tem-id").addClass("save-tem").css({"clear":"both","margin":"30px 9.22% 15px 0px"});
+			$("#sc-total-id").addClass("sc-total").css({"float":"right","margin":"30px 9.22% 0px 15px","clear":"both","width":"auto"});
+			$("#sc-footer-id").addClass("sc-footer").css({"position":"relative","height":"auto","padding":"0","z-index":"98","text-align":"right"});
+			$(".next-btn").css({"margin":"80px 9.22% 15px 0px"});				
+		}
+		/* shopping cart mob css */
+		function shopCartCssMob(){
+			$("#sc-tem-id,#sc-total-id,#sc-next-btn,#sc-footer-id").removeAttr("style");
+			$("#sc-tem-id").addClass("save-tem").css({"position":"absolute","left":"20%","bottom":"1px","margin":"0","clear":"both"});
+			$("#sc-total-id").addClass("sc-total").css({"position":"absolute","top":"0px","clear":"both","width":"100%","margin":"0","text-align":"left","float":"right","left":"20%"});	
+			$("#sc-footer-id").addClass("sc-footer").css({"position":"relative","height":"100px","bottom":"0","top":"auto","background-color":"#fff","margin":"10px 4% 65px","width":"auto","clear":"both","box-sizing":"border-box","z-index":"98","padding":"0"});			
+		    // $("#sa-total-id").addClass("sa-total").css({"top":"auto"});
+		}
+		
+		/* shopping cart slider footer css for mobile */
+		function shopCartCssFooter() {
+			$(".save-tem").css("display","none");
+			$(".sc-footer").css({'position':"fixed","height":"50px","width":"100%","margin":"0px","border-top":"1px solid #8a8c8f","border-bottom":"1px solid #8a8c8f","z-index":"9999"});
+			$(".sc-total").css({"top":"auto","bottom":"5px","width":"70%","left":"4%"});
+			$('.coB-total').css("width","100%");
+			$(".extraclass1").css({"top":"-20px"});
+			$(".next-btn").css({"top":"5px"});	
+			$(".extraclass2").css({"top":"0px",'position':'relative'});				
+		}
+		
+		/* shopping cart returns from footer css */
+		function shopCartCssRevertMob() {
+			$(".save-tem").css("display","block");
+			$(".sc-footer").css({'position':"relative","height":"100px","width":"auto","margin":"10px 4% 65px","border":"none","z-index":"98"});
+			$(".sc-total").css({"top":"0px","bottom":"auto","width":"100%","left":"20%"});
+			$(".next-btn").css({"top":"auto"});	
+            $(".extraclass1").css({"top":"130px"});			
+            $(".extraclass2").css({"top":"50px"});			
+		}
+})

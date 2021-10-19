@@ -1,0 +1,574 @@
+/*折扣券对账页面*/
+.coupon-tabs div{
+	cursor: pointer;
+}
+.coupon-tabs .coupon-right{
+	float: right;
+}
+@media only screen and (max-width:19250px){
+	.card-box{
+		margin-bottom: 20px;
+	}
+	.coupon-tabs{
+		padding-left: 20px;
+	}
+	.cl .row{
+		background-color: #fff;
+	}
+	.card{
+		position: relative;
+		float: left;
+		width: 92%;
+		overflow: hidden;
+		margin-left: 4%;
+		margin-top: 0;
+	}
+	.card div{
+		float: left;
+	}
+	.card-data-top{
+		display: block;
+		width: 100%;
+		height: 20px;
+		background:url(../../images/coupon/card-data-top.png);
+		background-size:100% 100%;
+		background-repeat: no-repeat;
+	}
+	.card-data-bottom{
+		display: block;
+		width: 100%;
+		height: 20px;
+		background:url(../../images/coupon/card-data-bottom.png);
+		background-size:100% 100%;
+		background-repeat: no-repeat;
+	}
+	.card-data-right{
+		display: none;
+	}
+	.card .card-data{
+		float: left;
+		width: 100%;
+		height: 120px;
+		border: 0;
+		color: #fff;
+		font-size:14px; 
+	}
+	.card .card-type{
+		width: 100%;
+		border: 0;
+		color: #fff;
+	}
+	.card-data div{
+		text-align: center;
+		font-size:24px;
+	}
+	.card-data{
+		position: relative;
+		width: 100%;
+		background-color: #4486d2;
+	}
+	.money-type{
+		align-items:flex-start;
+		position: relative;
+		bottom:10px;
+	}
+	.card .card-number{
+		position: absolute;
+		width: 100%;
+		text-align: center;
+		top:30px;
+		font-size: 3vw;
+		color: #fff;
+		z-index: 1;
+	}
+	.card-money{
+		width: 100%;
+		text-align: center;
+		font-size: 3.5vw;
+		font-weight: bold;
+	}
+	.card-type{
+		position: absolute;
+		bottom:0;
+		width: 100%;
+	}
+	.card-right-box{
+		position: relative;
+		float: left;
+		width: 100%;
+		overflow: hidden;
+		text-align: center;
+		background-color: #fff;
+		border-right: solid 1px #f1f1f1;
+		border-left: solid 1px #f1f1f1;
+	}
+	.card-title{
+		position: relative;
+		width: 92%;
+		height: 60px;
+		font-size: 20px;
+		line-height: 30px;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		margin-left: 4%;
+		color: #000;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+	.time-limited{
+		font-size: 14px;
+		color: #8a8c8f;
+		position: relative;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+	.inf{
+		display: none;
+	}
+	.btn-touse{
+		position: relative;
+		width: 110px;
+		height:42px;
+		margin-left: 78px;
+		margin-top: 20px;
+		margin-bottom: 20px;
+		border: 3px solid #4fa8fa;
+		text-align: center;
+		color: #4fa8fa;
+		font-size: 18px;
+		line-height: 36px;
+	}
+	.show-detail,.hide-detail{
+		display: none;
+
+	}
+	.card-detail{
+		width: 92%;
+		margin-left: 4%;
+		padding-left: 4%;
+		padding-right: 4%;
+		/*position: ;*/
+		float: left;
+		border-right: solid 1px #f1f1f1;
+		border-left: solid 1px #f1f1f1;
+		border-bottom: solid 1px #f1f1f1;
+	}
+	.first-line{
+		display: none;
+	}
+	.line{
+		width: 100%;
+		height: 1px;
+		background:#8a8c8f;
+	}
+	.card-box .get-time,
+	.card-box .detail-number,
+	.card-box .order-number,
+	.card-box .send-time{
+		display: block;
+		width: 100%;
+		height: 40px;
+		background-color: #fff;
+		padding-left: 5%;
+		padding-right: 5%;
+		color: #8a8c8f;
+	}
+	.card-box .get-time a,
+	.card-box .detail-number a,
+	.card-box .order-number a,
+	.card-box .send-time a{
+		display: block;
+		width: 100%;
+		height: 40px;
+		background-color: #fff;
+		color: #8a8c8f;
+	}
+	.card-box .get-time *,
+	.card-box .detail-number *,
+	.card-box .order-number *,
+	.card-box .send-time *{
+		float: left;
+		text-align: left;
+		font-size: 13px;
+		line-height: 40px;
+	}
+	.card-box .get-time .icon,
+	.card-box .detail-number .icon,
+	.card-box .order-number .icon,
+	.card-box .send-time .icon{
+		width: 20px;
+		height: 20px;
+		margin-top: 10px;
+		margin-right: 5px;
+	}
+	.detail-number .detail-inf{
+		color: #000;
+	}
+	.get-time .icon,
+	.send-time .icon{
+		background: url(../../images/coupon/time.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.order-number .icon{
+		background: url(../../images/coupon/order.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.detail-number .icon{
+		background: url(../../images/coupon/card.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.card-box .get-time .detail-inf,
+	.card-box .detail-number .detail-inf,
+	.card-box .order-number .detail-inf,
+	.card-box .send-time .detail-inf{
+		float: right;
+	}
+	.card-state{
+		width: 50px;
+		height:50px;
+		position: absolute;
+		z-index: 5;
+		top:0;
+		right: 4%;
+
+	}
+	.nouse-card .order-number{
+		display: none;
+	}
+	.new-card .order-number{
+		display: none;
+	}
+	.default-card .order-number{
+		display: none;
+	}
+	.nouse-card .send-time{
+		display: none;
+	}
+	.new-card .send-time{
+		display: none;
+	}
+	.default-card .send-time{
+		display: none;
+	}
+	.new-card .card-state{
+		background-position: top right;
+		background-repeat: no-repeat;
+		background-color: #fff;
+		background:url(../../images/coupon/coupon_status_new.png);
+		background-size: 50px 50px;
+	}
+	.nouse-card .card-state{
+		background:url(../../images/coupon/coupon_status_nouse.png);
+		background-position: top right;
+		background-repeat: no-repeat;
+		background-size: 50px 50px;
+	}
+	.used-card .card-state{
+		background:url(../../images/coupon/coupon_status_use.png);
+		background-position: top right;
+		background-repeat: no-repeat;
+		background-size: 50px 50px;
+	}
+	.q-nouse-card .card-state{
+		background:url(../../images/coupon/expiring.png);
+		background-position: top right;
+		background-repeat: no-repeat;
+		background-size: 50px 50px;
+	}
+	.used-card .btn-touse{
+		 display: none;
+	 }
+	.used-card .card-detail{
+		display: block;
+	}
+	.used-card .send-time{
+		margin-bottom:3px;
+	}
+	.q-nouse-card .send-time{
+		display: none;
+	}
+	.q-nouse-card .order-number{
+		display: none;
+	}
+}
+
+
+@media only screen and (max-width:767px) {
+	.card-box{
+		margin-top: 4vw;
+		margin-bottom: 0;
+	}
+	.coupon-tabs{
+		padding-left: 0px;
+	}
+	.coupon-tabs div{
+		float: right;
+	}
+	.cl .row{
+		background-color: #f8f8f8;
+	}
+	.card{
+		position: relative;
+		float: left;
+		width: 92%;
+		height:28vw;
+		margin-left: 4%;
+		min-height: 105px;
+	}
+	.card div{
+		float: left;
+	}
+	.card-data-left{
+		width: 4%;
+		float: left;
+		height: 100%;
+		background: url(../../images/coupon/card-data-left.png);
+		background-size: 100% 100%;
+		display:block;
+	}
+	.card-data-top{
+		display: none;
+	}
+	.card-data-bottom{
+		display: none;
+	}
+	.card-data-right{
+		display: block;
+		width: 4%;
+		float: left;
+		height: 100%;
+		background: url(../../images/coupon/card-data-right.png);
+		background-color: #fff;
+		background-size: 100% 100%;
+	}
+	.card .card-data{
+		float: left;
+		width: 26%;
+		height: 100%;
+		border: 0;
+		color: #fff;
+		display: inline;
+	}
+	.card-data div{
+		text-align: center;
+		font-size: 5vw;
+	}
+	.card .card-type{
+		width: 100%;
+		border: 0;
+		color: #fff;
+	}
+	.money-type{
+		align-items:flex-start;
+		position: relative;
+		bottom:8px;
+		font-size:18px;
+	}
+	.card-data{
+		position: relative;
+		width: 100%;
+	}
+	.card .card-number{
+		position: absolute;
+		width: 34%;
+		z-index: 1;
+		text-align: center;
+		top:15%;
+		color: #fff;
+	}
+	.card-money{
+		width: 100%;
+		text-align: center;
+		font-size: 30px;
+		font-weight: bold;
+	}
+	.card-type{
+		position: absolute;
+		bottom:20px;
+		width: 100%;
+		text-align: center;
+	}
+	.card-right-box{
+		position: relative;
+		float: left;
+		text-align: center;
+		width: 66%;
+		padding-left: 4vw;
+		padding-right: 4vw;
+		height: 100%;
+		background-color: #fff;
+		border:0;
+	}
+	.card-title{
+		margin-left: 0;
+		text-align: left;
+		font-size: 15px;
+		line-height: 20px;
+		margin-top: 10px;
+		max-height:40px;
+		color: #000;
+		padding-right: 6px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		display: -webkit-box;
+		-webkit-line-clamp: 2;
+		-webkit-box-orient: vertical;
+	}
+	.time-limited{
+		font-size: 3vw;
+		color: #404041;
+		position: absolute;
+		bottom:20px;
+		padding-bottom: 5px;
+		width:100%;
+		text-align: left;
+		border-bottom: 1px dashed #e5e5e5;
+		padding-right: 37%;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+	.inf{
+		width: 100%;
+		display: block;
+		text-align: left;
+		font-size: 3vw;
+		position: absolute;
+		bottom:0px;
+		color: #8a8c8f;
+		padding-bottom: 10px;
+	}
+	.btn-touse{
+		position: absolute;
+		width: 27%;
+		height:24px;
+		border: 2px solid #4fa8fa;
+		text-align: center;
+		right: 4%;
+		bottom: 15px;
+		color: #4fa8fa;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	.show-detail{
+		z-index: 8;
+		display: block;
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		right: 6vw;
+		top: 22vw;
+		background-color: #aaa;
+		background:url(../../images/coupon/isopen.png);
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+
+	}
+	.hide-detail{
+		z-index: 6;
+		display: block;
+		width: 18px;
+		height: 18px;
+		position: absolute;
+		right: 6vw;
+		top: 22vw;
+		background-color: #aaa;
+		background:url(../../images/coupon/isclosed.png);
+		background-size: 100% 100%;
+		background-position: center;
+		background-repeat: no-repeat;
+
+	}
+	.first-line{
+		display: block;
+		width: 100%;
+		height: 1px;
+		background:#8a8c8f;
+	}
+	.card-detail{
+		width: 100%;margin-left: 0;
+		position: relative;
+		float: left;
+		border:0;
+	}
+	.card-box .get-time,
+	.card-box .detail-number,
+	.card-box .order-number,
+	.card-box .send-time{
+		width: 100%;
+		height: 40px;
+		background-color: #fff;
+		padding-left: 2%;
+		padding-right: 2%;
+		color: #8a8c8f;
+	}
+	.card-box .get-time a,
+	.card-box .detail-number a,
+	.card-box .order-number a,
+	.card-box .send-time a{
+		display: block;
+		width: 100%;
+		height: 40px;
+		background-color: #fff;
+		color: #8a8c8f;
+	}
+	.card-box .get-time *,
+	.card-box .detail-number *,
+	.card-box .order-number *,
+	.card-box .send-time *{
+		float: left;
+		text-align: left;
+		font-size: 13px;
+		line-height: 40px;
+	}
+	.card-box .get-time .icon,
+	.card-box .detail-number .icon,
+	.card-box .order-number .icon,
+	.card-box .send-time .icon{
+		width: 20px;
+		height: 20px;
+		margin-top: 10px;
+		margin-right: 5px;
+	}
+	.detail-number .detail-inf{
+		color: #000;
+	}
+	.get-time .icon,
+	.send-time .icon{
+		background: url(../../images/coupon/time.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.order-number .icon{
+		background: url(../../images/coupon/order.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.detail-number .icon{
+		background: url(../../images/coupon/card.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+	}
+	.card-box .get-time .detail-inf,
+	.card-box .detail-number .detail-inf,
+	.card-box .order-number .detail-inf,
+	.card-box .send-time .detail-inf{
+		float: right;
+	}
+
+	.card-state{
+		right:4vw;
+		top:0;
+
+	}
+	.show-detail-line{
+		width:100%;
+	}
+}

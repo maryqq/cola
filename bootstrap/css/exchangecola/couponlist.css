@@ -1,0 +1,95 @@
+/* html{
+	 font-size: 10px!important;
+ } */    
+.couponone{
+	padding: 0 6% 2%;
+	
+}
+.time-title-wrap{
+	font-size: 1.7rem;
+}
+
+.loading{	      
+	       width:160px;
+	       height:56px;
+	       position: fixed;
+	       bottom: 250px;
+	       left:50%;
+	       line-height:56px;		       
+	       padding-top: 8%;
+	       font-size:15px;
+	       /* background:  url(images/exchangecola/loading.gif) no-repeat 10px 50%; */
+	       opacity: 0.7;
+	       z-index:9999;
+	       display: none;
+		   color: #000000;
+}
+
+.colacouponpic{
+	background: url(../../../images/exchangecola/youhuiquanpc.png);
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+	height: 100%;
+}
+
+.couponfenge{
+	margin: 0 6%;
+	height: 1px;
+	background-color: #f5f5f5;
+}
+.couponlist{
+	/* background-color:#f5f5f5; */
+	color: #707070;
+}
+.countBg{
+	font-size: 0.4rem;
+	padding: 8px 16px;
+	background-color: #f5f5f5;
+}
+.couponone{
+	position: relative;
+	background-color: #ffffff;
+}
+.cola-coupon{
+	height: 300px;
+	padding: 5% 0 0 0;
+}
+.couponweizhi{
+	position: absolute;
+	height: 75%;
+	left: 63%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+.couponnumber{
+	color: #000000;
+	font-size: 0.4rem;
+}
+.coupontype{
+	margin-top: 8%;
+	color: #000000;
+	font-size: 0.4rem;
+}
+.couponitem{
+	color: #000000;
+	font-size: 0.4rem;
+}
+.exchangeTime{
+	display: flex;
+	justify-content:flex-end;
+	margin-right: 10%;
+	font-size: 0.4rem;
+	padding-bottom: 1%;
+	margin-right: 6%;
+}
+.nomoretext{
+	text-align: center;
+	padding-bottom: 5px;
+	display: none;
+    background-color: #f5f5f5;
+	height: 30px;
+	line-height: 30px;
+	margin: 0 2%;
+	/* margin-bottom: 10px; */
+}
